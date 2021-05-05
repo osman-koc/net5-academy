@@ -3,9 +3,29 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{AB365147-168B-4366-8461-0221BCCF284B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{CBC6E83E-7C28-462B-B3E6-B9E390765234}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET5Academy.Services.Catalog", "Services\Catalog\NET5Academy.Services.Catalog\NET5Academy.Services.Catalog.csproj", "{757DE131-0518-4D96-AE40-85E76E1DBF83}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{757DE131-0518-4D96-AE40-85E76E1DBF83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{757DE131-0518-4D96-AE40-85E76E1DBF83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{757DE131-0518-4D96-AE40-85E76E1DBF83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{757DE131-0518-4D96-AE40-85E76E1DBF83}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CBC6E83E-7C28-462B-B3E6-B9E390765234} = {AB365147-168B-4366-8461-0221BCCF284B}
+		{757DE131-0518-4D96-AE40-85E76E1DBF83} = {CBC6E83E-7C28-462B-B3E6-B9E390765234}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {900AC0CE-2C9B-4A2C-A1B7-E75070446182}
