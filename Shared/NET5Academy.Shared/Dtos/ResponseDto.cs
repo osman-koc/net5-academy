@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace NET5Academy.Shared.Dtos
@@ -44,7 +42,7 @@ namespace NET5Academy.Shared.Dtos
                 Data = default(T),
                 StatusCode = statusCode,
                 IsSuccess = false,
-                Errors = new List<string> { errorMessage }
+                Errors = new List<string> { errorMessage}
             };
         }
 
