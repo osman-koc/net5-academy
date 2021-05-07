@@ -1,15 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NET5Academy.Services.Catalog.Dtos;
 using NET5Academy.Services.Catalog.Services;
+using NET5Academy.Shared.ControllerBases;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace NET5Academy.Services.Catalog.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CourseController : ControllerBase
+    public class CourseController : OkBaseController
     {
         private readonly ICourseService _courseService;
         public CourseController(ICourseService courseService)
@@ -27,12 +27,7 @@ namespace NET5Academy.Services.Catalog.Controllers
         public async Task<IActionResult> GetAll(string userId = null)
         {
             var response = await _courseService.GetAllAsync(userId);
-
-            object result = response.IsSuccess 
-                ? response.Data 
-                : response.Errors?.FirstOrDefault();
-
-            return StatusCode((int)response.StatusCode, result);
+            return CreateActionResultInstance(response);
         }
 
         /// <summary>
@@ -45,12 +40,7 @@ namespace NET5Academy.Services.Catalog.Controllers
         public async Task<IActionResult> GetById([Required] string id)
         {
             var response = await _courseService.GetByIdAsync(id);
-
-            object result = response.IsSuccess
-                ? response.Data
-                : response.Errors?.FirstOrDefault();
-
-            return StatusCode((int)response.StatusCode, result);
+            return CreateActionResultInstance(response);
         }
 
         /// <summary>
@@ -62,12 +52,7 @@ namespace NET5Academy.Services.Catalog.Controllers
         public async Task<IActionResult> Create([FromBody] CourseCreateDto dto)
         {
             var response = await _courseService.CreateAsync(dto);
-
-            object result = response.IsSuccess
-                ? response.Data
-                : response.Errors?.FirstOrDefault();
-
-            return StatusCode((int)response.StatusCode, result);
+            return CreateActionResultInstance(response);
         }
 
         /// <summary>
@@ -79,12 +64,7 @@ namespace NET5Academy.Services.Catalog.Controllers
         public async Task<IActionResult> Update([FromBody] CourseUpdateDto dto)
         {
             var response = await _courseService.UpdateAsync(dto);
-
-            object result = response.IsSuccess
-                ? response.Data
-                : response.Errors?.FirstOrDefault();
-
-            return StatusCode((int)response.StatusCode, result);
+            return CreateActionResultInstance(response);
         }
 
         /// <summary>
@@ -97,12 +77,7 @@ namespace NET5Academy.Services.Catalog.Controllers
         public async Task<IActionResult> Delete([Required] string id)
         {
             var response = await _courseService.DeleteAsync(id);
-
-            object result = response.IsSuccess
-                ? response.Data
-                : response.Errors?.FirstOrDefault();
-
-            return StatusCode((int)response.StatusCode, result);
+            return CreateActionResultInstance(response);
         }
     }
 }
