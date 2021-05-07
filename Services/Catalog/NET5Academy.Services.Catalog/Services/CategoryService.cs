@@ -5,11 +5,12 @@ using NET5Academy.Services.Catalog.Dtos;
 using NET5Academy.Services.Catalog.Settings;
 using NET5Academy.Shared.Models;
 using System.Collections.Generic;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace NET5Academy.Services.Catalog.Services
 {
-    internal class CategoryService
+    internal class CategoryService : ICategoryService
     {
         private readonly IMongoCollection<Category> _categoryCollection;
         private readonly IMapper _mapper;
@@ -27,28 +28,38 @@ namespace NET5Academy.Services.Catalog.Services
         {
             var categories = await _categoryCollection.Find(x => true).ToListAsync();
             var mapDtos = _mapper.Map<List<CategoryDto>>(categories);
-            return OkResponse<List<CategoryDto>>.Success(200, mapDtos);
+            return OkResponse<List<CategoryDto>>.Success((int)HttpStatusCode.OK, mapDtos);
         }
 
         public async Task<OkResponse<CategoryDto>> GetByIdAsync(string id)
         {
+            if (string.IsNullOrEmpty(id))
+            {
+                return OkResponse<CategoryDto>.Error((int)HttpStatusCode.BadRequest, "Id cannot be empty!");
+            }
+
             var category = await _categoryCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
             if(category == null)
             {
-                return OkResponse<CategoryDto>.Error(404, "Category not found!");
+                return OkResponse<CategoryDto>.Error((int)HttpStatusCode.NotFound, "Category not found!");
             }
 
             var mapDto = _mapper.Map<CategoryDto>(category);
-            return OkResponse<CategoryDto>.Success(200, mapDto);
+            return OkResponse<CategoryDto>.Success((int)HttpStatusCode.OK, mapDto);
         }
 
         public async Task<OkResponse<CategoryDto>> CreateAsync(string name)
         {
+            if (string.IsNullOrEmpty(name))
+            {
+                return OkResponse<CategoryDto>.Error((int)HttpStatusCode.BadRequest, "Name cannot be empty!");
+            }
+
             var category = new Category { Name = name };
             await _categoryCollection.InsertOneAsync(category);
             
             var mapDto = _mapper.Map<CategoryDto>(category);
-            return OkResponse<CategoryDto>.Success(200, mapDto);
+            return OkResponse<CategoryDto>.Success((int)HttpStatusCode.OK, mapDto);
         }
     }
 }
