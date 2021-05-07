@@ -12,5 +12,6 @@
 - Dapper
 - Redis
 - RabbitMQ
+- AutoMapper
 
 ![Diagram](diagram.jpg)
