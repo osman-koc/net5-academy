@@ -3,20 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{AB365147-168B-4366-8461-0221BCCF284B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservices", "Microservices", "{AB365147-168B-4366-8461-0221BCCF284B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{CBC6E83E-7C28-462B-B3E6-B9E390765234}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NET5Academy.Services.Catalog", "Services\Catalog\NET5Academy.Services.Catalog\NET5Academy.Services.Catalog.csproj", "{757DE131-0518-4D96-AE40-85E76E1DBF83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NET5Academy.Services.Catalog", "Microservices\Catalog\NET5Academy.Services.Catalog\NET5Academy.Services.Catalog.csproj", "{757DE131-0518-4D96-AE40-85E76E1DBF83}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{305BF5E9-7A06-46E1-AE7A-9EB5BC562C37}"
 	ProjectSection(SolutionItems) = preProject
 		Ports.txt = Ports.txt
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{FA60ED1D-3E69-4634-9C0C-3215E78D2D66}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{FA60ED1D-3E69-4634-9C0C-3215E78D2D66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET5Academy.Shared", "Shared\NET5Academy.Shared\NET5Academy.Shared.csproj", "{300B57A2-366B-4C1C-BF14-A82080258AA1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NET5Academy.Shared", "Core\NET5Academy.Shared\NET5Academy.Shared.csproj", "{300B57A2-366B-4C1C-BF14-A82080258AA1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Shared\NET5Academy.Shared\NET5Academy.Shared.csproj" />
+    <ProjectReference Include="..\..\..\Core\NET5Academy.Shared\NET5Academy.Shared.csproj" />
   </ItemGroup>
 
 </Project>
