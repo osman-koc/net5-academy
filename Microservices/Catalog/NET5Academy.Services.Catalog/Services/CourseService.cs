@@ -87,7 +87,9 @@ namespace NET5Academy.Services.Catalog.Services
             var updateCourse = _mapper.Map<Course>(dto);
             var result = await _courseCollection.FindOneAndReplaceAsync(x => x.Id == updateCourse.Id, updateCourse);
             if (result == null)
+            {
                 return OkResponse<CourseDto>.Error(HttpStatusCode.NotFound, "Course is not found.");
+            }
 
             var mapDto = _mapper.Map<CourseDto>(result);
             return OkResponse<CourseDto>.Success(HttpStatusCode.OK, mapDto);
@@ -105,7 +107,7 @@ namespace NET5Academy.Services.Catalog.Services
             }
             else
             {
-                return OkResponse<object>.Error(HttpStatusCode.BadRequest, "Course is not found.");
+                return OkResponse<object>.Error(HttpStatusCode.NotFound, "Course is not found.");
             }
         }
     }

@@ -9,6 +9,8 @@ namespace NET5Academy.Services.Catalog.Services
     {
         Task<OkResponse<List<CategoryDto>>> GetAllAsync();
         Task<OkResponse<CategoryDto>> GetByIdAsync(string id);
-        Task<OkResponse<CategoryDto>> CreateAsync(string name);
+        Task<OkResponse<CategoryDto>> CreateAsync(CategoryCreateDto dto);
+        Task<OkResponse<CategoryDto>> UpdateAsync(CategoryUpdateDto dto);
+        Task<OkResponse<object>> DeleteAsync(string id);
     }
 }

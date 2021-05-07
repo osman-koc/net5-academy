@@ -48,18 +48,51 @@ namespace NET5Academy.Services.Catalog.Services
             return OkResponse<CategoryDto>.Success(HttpStatusCode.OK, mapDto);
         }
 
-        public async Task<OkResponse<CategoryDto>> CreateAsync(string name)
+        public async Task<OkResponse<CategoryDto>> CreateAsync(CategoryCreateDto dto)
         {
-            if (string.IsNullOrEmpty(name))
+            if (dto == null || string.IsNullOrEmpty(dto.Name))
             {
-                return OkResponse<CategoryDto>.Error(HttpStatusCode.BadRequest, "Name cannot be empty!");
+                return OkResponse<CategoryDto>.Error(HttpStatusCode.BadRequest, "Model is not valid.");
             }
 
-            var category = new Category { Name = name };
+            var category = _mapper.Map<Category>(dto);
             await _categoryCollection.InsertOneAsync(category);
             
             var mapDto = _mapper.Map<CategoryDto>(category);
             return OkResponse<CategoryDto>.Success(HttpStatusCode.OK, mapDto);
+        }
+
+        public async Task<OkResponse<CategoryDto>> UpdateAsync(CategoryUpdateDto dto)
+        {
+
+            if (dto == null || string.IsNullOrEmpty(dto.Id) || string.IsNullOrEmpty(dto.Name))
+                return OkResponse<CategoryDto>.Error(HttpStatusCode.BadRequest, "Model is not valid!");
+
+            var updateCategory = _mapper.Map<Category>(dto);
+            var result = await _categoryCollection.FindOneAndReplaceAsync(x => x.Id == updateCategory.Id, updateCategory);
+            if (result == null)
+            {
+                return OkResponse<CategoryDto>.Error(HttpStatusCode.NotFound, "Category is not found.");
+            }
+
+            var mapDto = _mapper.Map<CategoryDto>(result);
+            return OkResponse<CategoryDto>.Success(HttpStatusCode.OK, mapDto);
+        }
+
+        public async Task<OkResponse<object>> DeleteAsync(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+                return OkResponse<object>.Error(HttpStatusCode.BadRequest, "Id cannot be empty!");
+
+            var result = await _categoryCollection.DeleteOneAsync(x => x.Id == id);
+            if (result.DeletedCount > 0)
+            {
+                return OkResponse<object>.Success(HttpStatusCode.NoContent);
+            }
+            else
+            {
+                return OkResponse<object>.Error(HttpStatusCode.NotFound, "Category is not found.");
+            }
         }
     }
 }
