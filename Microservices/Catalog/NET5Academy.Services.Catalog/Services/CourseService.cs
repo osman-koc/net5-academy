@@ -46,66 +46,66 @@ namespace NET5Academy.Services.Catalog.Services
             }
 
             var mapDtos = _mapper.Map<List<CourseDto>>(courses);
-            return OkResponse<List<CourseDto>>.Success((int)HttpStatusCode.OK, mapDtos);
+            return OkResponse<List<CourseDto>>.Success(HttpStatusCode.OK, mapDtos);
         }
 
         public async Task<OkResponse<CourseDto>> GetByIdAsync(string id)
         {
             if (string.IsNullOrEmpty(id))
-                return OkResponse<CourseDto>.Error((int)HttpStatusCode.BadRequest, "Id cannot be empty!");
+                return OkResponse<CourseDto>.Error(HttpStatusCode.BadRequest, "Id cannot be empty!");
 
             var course = await _courseCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
             if (course == null)
-                return OkResponse<CourseDto>.Error((int)HttpStatusCode.NotFound, "Course not found!");
+                return OkResponse<CourseDto>.Error(HttpStatusCode.NotFound, "Course not found!");
 
             if (!string.IsNullOrEmpty(course.CategoryId))
                 course.Category = await _categoryCollection.Find(x => x.Id == course.CategoryId).FirstOrDefaultAsync();
 
             var mapDto = _mapper.Map<CourseDto>(course);
-            return OkResponse<CourseDto>.Success((int)HttpStatusCode.OK, mapDto);
+            return OkResponse<CourseDto>.Success(HttpStatusCode.OK, mapDto);
         }
 
         public async Task<OkResponse<CourseDto>> CreateAsync(CourseCreateDto dto)
         {
             if (dto == null || string.IsNullOrEmpty(dto.Name))
-                return OkResponse<CourseDto>.Error((int)HttpStatusCode.BadRequest, "Model is not valid!");
+                return OkResponse<CourseDto>.Error(HttpStatusCode.BadRequest, "Model is not valid!");
 
             var newCourse = _mapper.Map<Course>(dto);
             newCourse.CreatedTime = DateTime.Now;
             await _courseCollection.InsertOneAsync(newCourse);
 
             var mapDto = _mapper.Map<CourseDto>(newCourse);
-            return OkResponse<CourseDto>.Success((int)HttpStatusCode.OK, mapDto);
+            return OkResponse<CourseDto>.Success(HttpStatusCode.OK, mapDto);
         }
 
         public async Task<OkResponse<CourseDto>> UpdateAsync(CourseUpdateDto dto)
         {
 
             if (dto == null || string.IsNullOrEmpty(dto.Id) || string.IsNullOrEmpty(dto.Name))
-                return OkResponse<CourseDto>.Error((int)HttpStatusCode.BadRequest, "Model is not valid!");
+                return OkResponse<CourseDto>.Error(HttpStatusCode.BadRequest, "Model is not valid!");
 
             var updateCourse = _mapper.Map<Course>(dto);
             var result = await _courseCollection.FindOneAndReplaceAsync(x => x.Id == updateCourse.Id, updateCourse);
             if (result == null)
-                return OkResponse<CourseDto>.Error((int)HttpStatusCode.NotFound, "Course is not found.");
+                return OkResponse<CourseDto>.Error(HttpStatusCode.NotFound, "Course is not found.");
 
             var mapDto = _mapper.Map<CourseDto>(result);
-            return OkResponse<CourseDto>.Success((int)HttpStatusCode.OK, mapDto);
+            return OkResponse<CourseDto>.Success(HttpStatusCode.OK, mapDto);
         }
 
         public async Task<OkResponse<object>> DeleteAsync(string id)
         {
             if (string.IsNullOrEmpty(id))
-                return OkResponse<object>.Error((int)HttpStatusCode.BadRequest, "Id cannot be empty!");
+                return OkResponse<object>.Error(HttpStatusCode.BadRequest, "Id cannot be empty!");
 
             var result = await _courseCollection.DeleteOneAsync(x => x.Id == id);
             if(result.DeletedCount > 0)
             {
-                return OkResponse<object>.Success((int)HttpStatusCode.NoContent);
+                return OkResponse<object>.Success(HttpStatusCode.NoContent);
             }
             else
             {
-                return OkResponse<object>.Error((int)HttpStatusCode.BadRequest, "Course is not found.");
+                return OkResponse<object>.Error(HttpStatusCode.BadRequest, "Course is not found.");
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Net;
 using System.Text.Json.Serialization;
 
 namespace NET5Academy.Shared.Models
@@ -15,43 +16,43 @@ namespace NET5Academy.Shared.Models
 
         public List<string> Errors { get; set; }
 
-        public static OkResponse<T> Success(int statusCode, T data)
+        public static OkResponse<T> Success(HttpStatusCode statusCode, T data)
         {
             return new OkResponse<T>
             {
                 Data = data,
-                StatusCode = statusCode,
+                StatusCode = (int)statusCode,
                 IsSuccess = true
             };
         }
 
-        public static OkResponse<T> Success(int statusCode)
+        public static OkResponse<T> Success(HttpStatusCode statusCode)
         {
             return new OkResponse<T>
             {
                 Data = default(T),
-                StatusCode = statusCode,
+                StatusCode = (int)statusCode,
                 IsSuccess = true
             };
         }
 
-        public static OkResponse<T> Error(int statusCode, string errorMessage)
+        public static OkResponse<T> Error(HttpStatusCode statusCode, string errorMessage)
         {
             return new OkResponse<T>
             {
                 Data = default(T),
-                StatusCode = statusCode,
+                StatusCode = (int)statusCode,
                 IsSuccess = false,
                 Errors = new List<string> { errorMessage}
             };
         }
 
-        public static OkResponse<T> Error(int statusCode, List<string> errorMessages)
+        public static OkResponse<T> Error(HttpStatusCode statusCode, List<string> errorMessages)
         {
             return new OkResponse<T>
             {
                 Data = default(T),
-                StatusCode = statusCode,
+                StatusCode = (int)statusCode,
                 IsSuccess = false,
                 Errors = errorMessages
             };
