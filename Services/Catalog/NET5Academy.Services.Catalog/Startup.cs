@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using NET5Academy.Services.Catalog.Settings;
 
 namespace NET5Academy.Services.Catalog
 {
@@ -25,6 +27,12 @@ namespace NET5Academy.Services.Catalog
             });
 
             services.AddAutoMapper(typeof(Startup));
+
+            services.Configure<MongoSettings>(Configuration.GetSection("MongoSettings"));
+            services.AddSingleton<IMongoSettings>(serviceProvider =>
+            {
+                return serviceProvider.GetRequiredService<IOptions<MongoSettings>>().Value;
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
