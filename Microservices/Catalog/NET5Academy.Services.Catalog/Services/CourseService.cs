@@ -4,6 +4,7 @@ using NET5Academy.Services.Catalog.Data.Entities;
 using NET5Academy.Services.Catalog.Dtos;
 using NET5Academy.Services.Catalog.Settings;
 using NET5Academy.Shared.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -67,6 +68,19 @@ namespace NET5Academy.Services.Catalog.Services
             }
 
             var mapDto = _mapper.Map<CourseDto>(course);
+            return OkResponse<CourseDto>.Success((int)HttpStatusCode.OK, mapDto);
+        }
+
+        public async Task<OkResponse<CourseDto>> CreateAsync(CourseCreateDto dto)
+        {
+            if (dto == null || string.IsNullOrEmpty(dto.Name))
+                return OkResponse<CourseDto>.Error((int)HttpStatusCode.BadRequest, "Model is not valid!");
+
+            var newCourse = _mapper.Map<Course>(dto);
+            newCourse.CreatedTime = DateTime.Now;
+            await _courseCollection.InsertOneAsync(newCourse);
+
+            var mapDto = _mapper.Map<CourseDto>(newCourse);
             return OkResponse<CourseDto>.Success((int)HttpStatusCode.OK, mapDto);
         }
     }
