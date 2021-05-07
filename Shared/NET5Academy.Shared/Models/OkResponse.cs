@@ -35,7 +35,7 @@ namespace NET5Academy.Shared.Models
             };
         }
 
-        public static OkResponse<T> Error(string errorMessage, int statusCode)
+        public static OkResponse<T> Error(int statusCode, string errorMessage)
         {
             return new OkResponse<T>
             {
@@ -46,7 +46,7 @@ namespace NET5Academy.Shared.Models
             };
         }
 
-        public static OkResponse<T> Error(List<string> errorMessages, int statusCode)
+        public static OkResponse<T> Error(int statusCode, List<string> errorMessages)
         {
             return new OkResponse<T>
             {
