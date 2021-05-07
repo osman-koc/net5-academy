@@ -9,7 +9,7 @@ namespace NET5Academy.Shared.Models
         public T Data { get; private set; }
 
         [JsonIgnore]
-        public int StatusCode { get; private set; }
+        public HttpStatusCode StatusCode { get; private set; }
 
         [JsonIgnore]
         public bool IsSuccess { get; private set; }
@@ -21,7 +21,7 @@ namespace NET5Academy.Shared.Models
             return new OkResponse<T>
             {
                 Data = data,
-                StatusCode = (int)statusCode,
+                StatusCode = statusCode,
                 IsSuccess = true
             };
         }
@@ -31,7 +31,7 @@ namespace NET5Academy.Shared.Models
             return new OkResponse<T>
             {
                 Data = default(T),
-                StatusCode = (int)statusCode,
+                StatusCode = statusCode,
                 IsSuccess = true
             };
         }
@@ -41,7 +41,7 @@ namespace NET5Academy.Shared.Models
             return new OkResponse<T>
             {
                 Data = default(T),
-                StatusCode = (int)statusCode,
+                StatusCode = statusCode,
                 IsSuccess = false,
                 Errors = new List<string> { errorMessage}
             };
@@ -52,7 +52,7 @@ namespace NET5Academy.Shared.Models
             return new OkResponse<T>
             {
                 Data = default(T),
-                StatusCode = (int)statusCode,
+                StatusCode = statusCode,
                 IsSuccess = false,
                 Errors = errorMessages
             };
