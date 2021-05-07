@@ -83,5 +83,20 @@ namespace NET5Academy.Services.Catalog.Services
             var mapDto = _mapper.Map<CourseDto>(newCourse);
             return OkResponse<CourseDto>.Success((int)HttpStatusCode.OK, mapDto);
         }
+
+        public async Task<OkResponse<CourseDto>> UpdateAsync(CourseUpdateDto dto)
+        {
+
+            if (dto == null || string.IsNullOrEmpty(dto.Id) || string.IsNullOrEmpty(dto.Name))
+                return OkResponse<CourseDto>.Error((int)HttpStatusCode.BadRequest, "Model is not valid!");
+
+            var updateCourse = _mapper.Map<Course>(dto);
+            var result = await _courseCollection.FindOneAndReplaceAsync(x => x.Id == updateCourse.Id, updateCourse);
+            if (result == null)
+                return OkResponse<CourseDto>.Error((int)HttpStatusCode.NotFound, "Course is not found.");
+
+            var mapDto = _mapper.Map<CourseDto>(result);
+            return OkResponse<CourseDto>.Success((int)HttpStatusCode.OK, mapDto);
+        }
     }
 }
