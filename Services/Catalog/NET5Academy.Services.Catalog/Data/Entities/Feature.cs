@@ -1,4 +1,4 @@
-﻿namespace NET5Academy.Services.Catalog.Models
+﻿namespace NET5Academy.Services.Catalog.Data.Entities
 {
     public class Feature
     {
