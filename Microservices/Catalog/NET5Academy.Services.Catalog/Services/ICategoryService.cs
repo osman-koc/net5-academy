@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace NET5Academy.Services.Catalog.Services
 {
-    internal interface ICategoryService
+    public interface ICategoryService
     {
         Task<OkResponse<List<CategoryDto>>> GetAllAsync();
         Task<OkResponse<CategoryDto>> GetByIdAsync(string id);

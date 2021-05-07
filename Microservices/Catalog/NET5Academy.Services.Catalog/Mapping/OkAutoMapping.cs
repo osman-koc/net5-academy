@@ -4,7 +4,7 @@ using NET5Academy.Services.Catalog.Dtos;
 
 namespace NET5Academy.Services.Catalog.Mapping
 {
-    internal class OkAutoMapping : Profile
+    public class OkAutoMapping : Profile
     {
         public OkAutoMapping()
         {
