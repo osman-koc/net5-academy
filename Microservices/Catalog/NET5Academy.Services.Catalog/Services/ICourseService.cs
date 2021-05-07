@@ -7,7 +7,7 @@ namespace NET5Academy.Services.Catalog.Services
 {
     internal interface ICourseService
     {
-        Task<OkResponse<List<CourseDto>>> GetAllAsync();
+        Task<OkResponse<List<CourseDto>>> GetAllAsync(string userId = null);
         Task<OkResponse<CourseDto>> GetByIdAsync(string id);
 
     }

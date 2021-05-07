@@ -27,10 +27,14 @@ namespace NET5Academy.Services.Catalog.Services
             _mapper = mapper;
         }
 
-        public async Task<OkResponse<List<CourseDto>>> GetAllAsync()
+        public async Task<OkResponse<List<CourseDto>>> GetAllAsync(string userId = null)
         {
-            var courses = await _courseCollection.Find(x => true).ToListAsync();
-            if (courses.Any())
+            var courses = await _courseCollection.Find(x => string.IsNullOrEmpty(userId) || x.UserId == userId).ToListAsync();
+            if (!courses.Any())
+            {
+                courses = new List<Course>();
+            }
+            else
             {
                 var categoryIds = courses.Select(x => x.CategoryId).ToList();
                 var categories = await _categoryCollection.Find(x => categoryIds.Contains(x.Id)).ToListAsync();
@@ -38,10 +42,6 @@ namespace NET5Academy.Services.Catalog.Services
                 {
                     courses.ForEach(item => item.Category = categories.FirstOrDefault(x => x.Id == item.CategoryId));
                 }
-            }
-            else
-            {
-                courses = new List<Course>();
             }
 
             var mapDtos = _mapper.Map<List<CourseDto>>(courses);
