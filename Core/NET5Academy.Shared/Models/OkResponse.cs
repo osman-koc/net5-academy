@@ -43,7 +43,7 @@ namespace NET5Academy.Shared.Models
                 Data = default(T),
                 StatusCode = statusCode,
                 IsSuccess = false,
-                Errors = new List<string> { errorMessage}
+                Errors = new List<string> { errorMessage }
             };
         }
 
