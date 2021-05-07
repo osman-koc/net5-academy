@@ -36,6 +36,7 @@ namespace NET5Academy.Services.Catalog
             });
 
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<ICourseService, CourseService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
