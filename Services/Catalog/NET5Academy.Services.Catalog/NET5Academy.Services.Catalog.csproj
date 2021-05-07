@@ -14,4 +14,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\NET5Academy.Shared\NET5Academy.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

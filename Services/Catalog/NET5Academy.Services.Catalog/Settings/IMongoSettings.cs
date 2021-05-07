@@ -1,6 +1,6 @@
 ﻿namespace NET5Academy.Services.Catalog.Settings
 {
-    public interface IMongoSettings
+    internal interface IMongoSettings
     {
         public string CourseCollectionName { get; set; }
         public string CategoryCollectionName { get; set; }

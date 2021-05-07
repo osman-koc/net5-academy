@@ -1,6 +1,6 @@
 ﻿namespace NET5Academy.Services.Catalog.Dtos
 {
-    public class CourseUpdateDto : CourseCreateDto
+    internal class CourseUpdateDto : CourseCreateDto
     {
         public string Id { get; set; }
     }

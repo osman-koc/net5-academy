@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace NET5Academy.Shared.Dtos
+namespace NET5Academy.Shared.Models
 {
-    public class ResponseDto<T>
+    public class OkResponse<T>
     {
         public T Data { get; private set; }
 
@@ -15,9 +15,9 @@ namespace NET5Academy.Shared.Dtos
 
         public List<string> Errors { get; set; }
 
-        public static ResponseDto<T> Success(int statusCode, T data)
+        public static OkResponse<T> Success(int statusCode, T data)
         {
-            return new ResponseDto<T>
+            return new OkResponse<T>
             {
                 Data = data,
                 StatusCode = statusCode,
@@ -25,9 +25,9 @@ namespace NET5Academy.Shared.Dtos
             };
         }
 
-        public static ResponseDto<T> Success(int statusCode)
+        public static OkResponse<T> Success(int statusCode)
         {
-            return new ResponseDto<T>
+            return new OkResponse<T>
             {
                 Data = default(T),
                 StatusCode = statusCode,
@@ -35,9 +35,9 @@ namespace NET5Academy.Shared.Dtos
             };
         }
 
-        public static ResponseDto<T> Error(string errorMessage, int statusCode)
+        public static OkResponse<T> Error(string errorMessage, int statusCode)
         {
-            return new ResponseDto<T>
+            return new OkResponse<T>
             {
                 Data = default(T),
                 StatusCode = statusCode,
@@ -46,9 +46,9 @@ namespace NET5Academy.Shared.Dtos
             };
         }
 
-        public static ResponseDto<T> Error(List<string> errorMessages, int statusCode)
+        public static OkResponse<T> Error(List<string> errorMessages, int statusCode)
         {
-            return new ResponseDto<T>
+            return new OkResponse<T>
             {
                 Data = default(T),
                 StatusCode = statusCode,

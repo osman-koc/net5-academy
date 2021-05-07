@@ -1,6 +1,6 @@
 ﻿namespace NET5Academy.Services.Catalog.Settings
 {
-    public class MongoSettings : IMongoSettings
+    internal class MongoSettings : IMongoSettings
     {
         public string CourseCollectionName { get; set; }
         public string CategoryCollectionName { get; set; }
