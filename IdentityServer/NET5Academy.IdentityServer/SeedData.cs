@@ -41,64 +41,31 @@ namespace NET5Academy.IdentityServer
                     {
                         alice = new ApplicationUser
                         {
-                            UserName = "alice",
-                            Email = "AliceSmith@email.com",
+                            UserName = "admin",
+                            Email = "info@osmkoc.com",
                             EmailConfirmed = true,
                         };
-                        var result = userMgr.CreateAsync(alice, "Pass123$").Result;
+                        var result = userMgr.CreateAsync(alice, "Net5Akademi!").Result;
                         if (!result.Succeeded)
                         {
                             throw new Exception(result.Errors.First().Description);
                         }
 
                         result = userMgr.AddClaimsAsync(alice, new Claim[]{
-                            new Claim(JwtClaimTypes.Name, "Alice Smith"),
-                            new Claim(JwtClaimTypes.GivenName, "Alice"),
-                            new Claim(JwtClaimTypes.FamilyName, "Smith"),
-                            new Claim(JwtClaimTypes.WebSite, "http://alice.com"),
+                            new Claim(JwtClaimTypes.Name, "Osman Koç"),
+                            new Claim(JwtClaimTypes.GivenName, "Osman"),
+                            new Claim(JwtClaimTypes.FamilyName, "Koç"),
+                            new Claim(JwtClaimTypes.WebSite, "https://osmkoc.com"),
                         }).Result;
                         if (!result.Succeeded)
                         {
                             throw new Exception(result.Errors.First().Description);
                         }
-                        Log.Debug("alice created");
+                        Log.Debug("Default user created");
                     }
                     else
                     {
-                        Log.Debug("alice already exists");
-                    }
-
-                    var bob = userMgr.FindByNameAsync("bob").Result;
-                    if (bob == null)
-                    {
-                        bob = new ApplicationUser
-                        {
-                            UserName = "bob",
-                            Email = "BobSmith@email.com",
-                            EmailConfirmed = true
-                        };
-                        var result = userMgr.CreateAsync(bob, "Pass123$").Result;
-                        if (!result.Succeeded)
-                        {
-                            throw new Exception(result.Errors.First().Description);
-                        }
-
-                        result = userMgr.AddClaimsAsync(bob, new Claim[]{
-                            new Claim(JwtClaimTypes.Name, "Bob Smith"),
-                            new Claim(JwtClaimTypes.GivenName, "Bob"),
-                            new Claim(JwtClaimTypes.FamilyName, "Smith"),
-                            new Claim(JwtClaimTypes.WebSite, "http://bob.com"),
-                            new Claim("location", "somewhere")
-                        }).Result;
-                        if (!result.Succeeded)
-                        {
-                            throw new Exception(result.Errors.First().Description);
-                        }
-                        Log.Debug("bob created");
-                    }
-                    else
-                    {
-                        Log.Debug("bob already exists");
+                        Log.Debug("Default user already exists");
                     }
                 }
             }
