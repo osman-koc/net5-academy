@@ -18,6 +18,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{FA60ED1D-3
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NET5Academy.Shared", "Core\NET5Academy.Shared\NET5Academy.Shared.csproj", "{300B57A2-366B-4C1C-BF14-A82080258AA1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentityServer", "IdentityServer", "{247CED66-339D-47A3-9E23-9B9D76FB3892}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NET5Academy.IdentityServer", "IdentityServer\NET5Academy.IdentityServer\NET5Academy.IdentityServer.csproj", "{F7FE5807-CBD4-4508-B082-61B9373239F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +36,10 @@ Global
 		{300B57A2-366B-4C1C-BF14-A82080258AA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{300B57A2-366B-4C1C-BF14-A82080258AA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{300B57A2-366B-4C1C-BF14-A82080258AA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7FE5807-CBD4-4508-B082-61B9373239F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7FE5807-CBD4-4508-B082-61B9373239F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7FE5807-CBD4-4508-B082-61B9373239F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7FE5807-CBD4-4508-B082-61B9373239F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -40,6 +48,7 @@ Global
 		{CBC6E83E-7C28-462B-B3E6-B9E390765234} = {AB365147-168B-4366-8461-0221BCCF284B}
 		{757DE131-0518-4D96-AE40-85E76E1DBF83} = {CBC6E83E-7C28-462B-B3E6-B9E390765234}
 		{300B57A2-366B-4C1C-BF14-A82080258AA1} = {FA60ED1D-3E69-4634-9C0C-3215E78D2D66}
+		{F7FE5807-CBD4-4508-B082-61B9373239F1} = {247CED66-339D-47A3-9E23-9B9D76FB3892}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {900AC0CE-2C9B-4A2C-A1B7-E75070446182}
