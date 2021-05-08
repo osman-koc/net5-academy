@@ -22,4 +22,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.5" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.5" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\NET5Academy.Shared\NET5Academy.Shared.csproj" />
+  </ItemGroup>
 </Project>
