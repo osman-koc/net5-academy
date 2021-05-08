@@ -92,6 +92,12 @@ namespace NET5Academy.Services.Catalog.Services
             }
 
             var mapDto = _mapper.Map<CourseDto>(result);
+            if (!string.IsNullOrEmpty(result.CategoryId))
+            {
+                var category = await _categoryCollection.Find(x => x.Id == result.CategoryId).FirstOrDefaultAsync();
+                mapDto.Category = _mapper.Map<CategoryDto>(category);
+            }
+
             return OkResponse<CourseDto>.Success(HttpStatusCode.OK, mapDto);
         }
 
