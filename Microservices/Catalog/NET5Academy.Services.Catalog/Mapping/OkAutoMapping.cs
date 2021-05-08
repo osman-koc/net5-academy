@@ -11,7 +11,11 @@ namespace NET5Academy.Services.Catalog.Mapping
             CreateMap<Course, CourseDto>().ReverseMap();
             CreateMap<Course, CourseCreateDto>().ReverseMap();
             CreateMap<Course, CourseUpdateDto>().ReverseMap();
+
             CreateMap<Category, CategoryDto>().ReverseMap();
+            CreateMap<Category, CategoryCreateDto>().ReverseMap();
+            CreateMap<Category, CategoryUpdateDto>().ReverseMap();
+
             CreateMap<Feature, FeatureDto>().ReverseMap();
         }
     }
