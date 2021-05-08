@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
-using NET5Academy.Services.Catalog.Services;
+using NET5Academy.Services.Catalog.Application.Services;
 using NET5Academy.Services.Catalog.Settings;
 
 namespace NET5Academy.Services.Catalog

@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using NET5Academy.Services.Catalog.Dtos;
-using NET5Academy.Services.Catalog.Services;
+using NET5Academy.Services.Catalog.Application.Dtos;
+using NET5Academy.Services.Catalog.Application.Services;
 using NET5Academy.Shared.ControllerBases;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 
-namespace NET5Academy.Services.Catalog.Controllers
+namespace NET5Academy.Services.Catalog.Application.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using MongoDB.Driver;
 using NET5Academy.Services.Catalog.Data.Entities;
-using NET5Academy.Services.Catalog.Dtos;
+using NET5Academy.Services.Catalog.Application.Dtos;
 using NET5Academy.Services.Catalog.Settings;
 using NET5Academy.Shared.Models;
 using System;
@@ -10,7 +10,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace NET5Academy.Services.Catalog.Services
+namespace NET5Academy.Services.Catalog.Application.Services
 {
     public class CourseService : ICourseService
     {

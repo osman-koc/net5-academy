@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NET5Academy.IdentityServer.Data.Entities;
-using NET5Academy.IdentityServer.Dtos;
+using NET5Academy.IdentityServer.Application.Dtos;
 using NET5Academy.Shared.ControllerBases;
 using NET5Academy.Shared.Models;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace NET5Academy.IdentityServer.Controllers
+namespace NET5Academy.IdentityServer.Application.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

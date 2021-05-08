@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NET5Academy.Services.Catalog.Dtos
+namespace NET5Academy.Services.Catalog.Application.Dtos
 {
     public class CourseDto
     {

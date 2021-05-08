@@ -1,4 +1,4 @@
-﻿namespace NET5Academy.IdentityServer.Dtos
+﻿namespace NET5Academy.IdentityServer.Application.Dtos
 {
     public class UserCreateDto
     {

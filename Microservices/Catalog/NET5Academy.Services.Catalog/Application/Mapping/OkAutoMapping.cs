@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using NET5Academy.Services.Catalog.Data.Entities;
-using NET5Academy.Services.Catalog.Dtos;
+using NET5Academy.Services.Catalog.Application.Dtos;
 
-namespace NET5Academy.Services.Catalog.Mapping
+namespace NET5Academy.Services.Catalog.Application.Mapping
 {
     public class OkAutoMapping : Profile
     {
