@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "SelfHost": {
+    "NET5Academy.IdentityServer": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
