@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NET5Academy.IdentityServer.Data;
-using NET5Academy.IdentityServer.Models;
+using NET5Academy.IdentityServer.Data.Entities;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using NET5Academy.IdentityServer.Models;
+using NET5Academy.IdentityServer.Data.Entities;
 
 namespace NET5Academy.IdentityServer.Data
 {

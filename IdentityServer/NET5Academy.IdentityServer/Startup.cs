@@ -1,6 +1,6 @@
 ﻿using IdentityServer4;
 using NET5Academy.IdentityServer.Data;
-using NET5Academy.IdentityServer.Models;
+using NET5Academy.IdentityServer.Data.Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
