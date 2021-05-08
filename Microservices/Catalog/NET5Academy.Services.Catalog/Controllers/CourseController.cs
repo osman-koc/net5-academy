@@ -27,7 +27,7 @@ namespace NET5Academy.Services.Catalog.Controllers
         public async Task<IActionResult> GetAll(string userId = null)
         {
             var response = await _courseService.GetAllAsync(userId);
-            return CreateActionResultInstance(response);
+            return OkActionResult(response);
         }
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace NET5Academy.Services.Catalog.Controllers
         public async Task<IActionResult> GetById([Required] string id)
         {
             var response = await _courseService.GetByIdAsync(id);
-            return CreateActionResultInstance(response);
+            return OkActionResult(response);
         }
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace NET5Academy.Services.Catalog.Controllers
         public async Task<IActionResult> Create([FromBody] CourseCreateDto dto)
         {
             var response = await _courseService.CreateAsync(dto);
-            return CreateActionResultInstance(response);
+            return OkActionResult(response);
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace NET5Academy.Services.Catalog.Controllers
         public async Task<IActionResult> Update([FromBody] CourseUpdateDto dto)
         {
             var response = await _courseService.UpdateAsync(dto);
-            return CreateActionResultInstance(response);
+            return OkActionResult(response);
         }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace NET5Academy.Services.Catalog.Controllers
         public async Task<IActionResult> Delete([Required] string id)
         {
             var response = await _courseService.DeleteAsync(id);
-            return CreateActionResultInstance(response);
+            return OkActionResult(response);
         }
     }
 }
