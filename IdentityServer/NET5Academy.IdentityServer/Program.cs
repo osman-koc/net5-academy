@@ -1,9 +1,16 @@
 ﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NET5Academy.IdentityServer.Data;
+using NET5Academy.IdentityServer.Models;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
 using System;
+using System.Linq;
 
 namespace NET5Academy.IdentityServer
 {
@@ -32,6 +39,28 @@ namespace NET5Academy.IdentityServer
             {
                 var host = CreateHostBuilder(args).Build();
 
+                using (var scope = host.Services.CreateScope())
+                {
+                    var serviceProvider = scope.ServiceProvider;
+                    var dbContext = serviceProvider.GetRequiredService<ApplicationDbContext>();
+
+                    //create migrations (if not exists)
+                    dbContext.Database.Migrate();
+
+                    //create default user (if not exist)
+                    var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+                    if (!userManager.Users.Any())
+                    {
+                        var defaultUser = new ApplicationUser
+                        {
+                            UserName = "admin",
+                            Email = "info@osmkoc.com",
+                            EmailConfirmed = true,
+                        };
+                        var defaultUserPassword = "Net5Akademi!";
+                        userManager.CreateAsync(defaultUser, defaultUserPassword).Wait();
+                    }
+                }
 
                 Log.Information("Starting host...");
                 host.Run();
