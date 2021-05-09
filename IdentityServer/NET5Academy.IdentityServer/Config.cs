@@ -59,7 +59,7 @@ namespace NET5Academy.IdentityServer
                     AllowOfflineAccess = true,
                     AllowedScopes =
                     {
-                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.OpenId, //required (open id connect protocol)
                         IdentityServerConstants.StandardScopes.Email,
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.OfflineAccess, //for refresh token
