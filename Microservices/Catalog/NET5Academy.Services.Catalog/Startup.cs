@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -7,6 +8,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using NET5Academy.Services.Catalog.Application.Services;
 using NET5Academy.Services.Catalog.Settings;
+using NET5Academy.Shared.Constants;
 
 namespace NET5Academy.Services.Catalog
 {
@@ -26,6 +28,14 @@ namespace NET5Academy.Services.Catalog
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "NET5Academy.Services.Catalog", Version = "v1" });
             });
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.Authority = Configuration["IdentityServerUri"];
+                    options.Audience = OkIdentityConstans.ResourceName.CatalogAPI;
+                    options.RequireHttpsMetadata = false;
+                });
 
             services.AddAutoMapper(typeof(Startup));
 
@@ -51,6 +61,7 @@ namespace NET5Academy.Services.Catalog
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
