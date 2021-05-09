@@ -1,9 +1,12 @@
-﻿namespace NET5Academy.Shared.Constants
+﻿using NET5Academy.Shared.Models;
+
+namespace NET5Academy.Shared.Constants
 {
     public class OkIdentityConstans
     {
         public static class ScopeName
         {
+            public const string Roles = "roles";
             public const string CatalogAPI = "CatalogApi";
             public const string PhotoStockAPI = "PhotoStockApi";
         }
@@ -20,11 +23,15 @@
             public const string PhotoStockAPI = "resource_photostock";
         }
 
-        public static class ClientInfo
+        public static class Clients
         {
-            public const string Id = "WebMvcClient";
-            public const string Name = "Asp.Net Core MVC";
-            public const string Secret = "secret";
+            public static readonly OkClient WebMvcClient = new OkClient("WebMvcClient", "Asp.Net Core MVC", "secret");
+            public static readonly OkClient WebMvcClientForUser = new OkClient("WebMvcClientForUser", "Asp.Net Core MVC", "secret");
+        }
+
+        public static class ClaimName
+        {
+            public const string Role = "role";
         }
     }
 }
