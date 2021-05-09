@@ -4,8 +4,8 @@
     {
         public static class ScopeName
         {
-            public const string CatalogAPI = "catalog_fullpermission";
-            public const string PhotoStockAPI = "photostock_fullpermission";
+            public const string CatalogAPI = "CatalogApi";
+            public const string PhotoStockAPI = "PhotoStockApi";
         }
         public static class ScopeDisplay
         {
