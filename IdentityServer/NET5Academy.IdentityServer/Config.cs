@@ -34,9 +34,9 @@ namespace NET5Academy.IdentityServer
             {
                 new Client
                 {
-                    ClientId = "WebMvcClient",
-                    ClientName = "Asp.Net Core MVC",
-                    ClientSecrets = { new Secret("secret".Sha256()) },
+                    ClientId = OkIdentityConstans.ClientInfo.Id,
+                    ClientName = OkIdentityConstans.ClientInfo.Name,
+                    ClientSecrets = { new Secret(OkIdentityConstans.ClientInfo.Secret.Sha256()) },
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     AllowedScopes = { IdentityServerConstants.LocalApi.ScopeName, OkIdentityConstans.ScopeName.CatalogAPI, OkIdentityConstans.ScopeName.PhotoStockAPI }
                 }

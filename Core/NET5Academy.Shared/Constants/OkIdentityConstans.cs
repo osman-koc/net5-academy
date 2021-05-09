@@ -19,5 +19,12 @@
             public const string CatalogAPI = "resource_catalog";
             public const string PhotoStockAPI = "resource_photostock";
         }
+
+        public static class ClientInfo
+        {
+            public const string Id = "WebMvcClient";
+            public const string Name = "Asp.Net Core MVC";
+            public const string Secret = "secret";
+        }
     }
 }
