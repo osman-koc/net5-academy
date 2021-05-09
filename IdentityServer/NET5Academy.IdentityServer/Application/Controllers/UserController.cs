@@ -7,9 +7,12 @@ using NET5Academy.Shared.Models;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using IdentityServer4;
 
 namespace NET5Academy.IdentityServer.Application.Controllers
 {
+    [Authorize(IdentityServerConstants.LocalApi.PolicyName)]
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : OkBaseController
