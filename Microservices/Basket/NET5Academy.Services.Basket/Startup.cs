@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using NET5Academy.Services.Basket.Application.Services;
 using NET5Academy.Services.Basket.Settings;
 
 namespace NET5Academy.Services.Basket
@@ -30,6 +31,8 @@ namespace NET5Academy.Services.Basket
             {
                 return serviceProvider.GetRequiredService<IOptions<RedisSettings>>().Value;
             });
+
+            services.AddSingleton<IRedisService, RedisService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
