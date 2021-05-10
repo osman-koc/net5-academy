@@ -4,3 +4,4 @@ Other
 Microservices
 -CatalogAPI: 9001
 -PhotoStock: 9002
+-Basket: 9003
