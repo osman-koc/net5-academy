@@ -56,9 +56,11 @@ namespace NET5Academy.IdentityServer
                     ClientName = OkIdentityConstans.Clients.WebMvcClientForUser.Name,
                     ClientSecrets = { new Secret(OkIdentityConstans.Clients.WebMvcClient.Secret.Sha256()) },
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
+                    AllowOfflineAccess = true,
                     AllowedScopes =
                     {
-                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.LocalApi.ScopeName, //required for identity
+                        IdentityServerConstants.StandardScopes.OpenId, //required (open id connect protocol)
                         IdentityServerConstants.StandardScopes.Email,
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.OfflineAccess, //for refresh token

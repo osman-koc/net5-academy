@@ -23,7 +23,7 @@ namespace NET5Academy.IdentityServer.Application.Services
             var existUser = await _userManager.FindByEmailAsync(context.UserName);
             if(existUser == null)
             {
-                errors.Add("Errors", new List<string> { "User not found!" });
+                errors.Add("errors", new List<string> { "User not found!" });
                 context.Result.CustomResponse = errors;
                 return;
             }
@@ -31,7 +31,7 @@ namespace NET5Academy.IdentityServer.Application.Services
             var userCheck = await _userManager.CheckPasswordAsync(existUser, context.Password);
             if (!userCheck)
             {
-                errors.Add("Errors", new List<string> { "Incorrect email or password!" });
+                errors.Add("errors", new List<string> { "Incorrect email or password!" });
                 context.Result.CustomResponse = errors;
                 return;
             }
