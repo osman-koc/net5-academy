@@ -1,6 +1,6 @@
-Microservices
--CatalogAPI: 5011
--PhotoStock: 5012
-
 Other
--IdentityServer: 5001
+-IdentityServer: 8001
+
+Microservices
+-CatalogAPI: 9001
+-PhotoStock: 9002
