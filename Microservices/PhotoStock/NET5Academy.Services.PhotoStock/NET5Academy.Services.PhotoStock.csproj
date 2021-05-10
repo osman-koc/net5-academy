@@ -9,9 +9,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Application\Controllers\" />
-    <Folder Include="Application\" />
     <Folder Include="wwwroot\photos\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\NET5Academy.Shared\NET5Academy.Shared.csproj" />
   </ItemGroup>
 
 </Project>

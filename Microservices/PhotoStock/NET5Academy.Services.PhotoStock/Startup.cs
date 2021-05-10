@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using NET5Academy.Services.PhotoStock.Application.Services;
 
 namespace NET5Academy.Services.PhotoStock
 {
@@ -17,12 +18,13 @@ namespace NET5Academy.Services.PhotoStock
 
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "NET5Academy.Services.PhotoStock", Version = "v1" });
             });
+
+            services.AddScoped<IPhotoService, PhotoService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
