@@ -1,2 +1,6 @@
-Services
+Other
+-IdentityServer: 5001
+
+Microservices
 -CatalogAPI: 5011
+-PhotoStock: 5012
