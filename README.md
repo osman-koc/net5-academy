@@ -1,6 +1,6 @@
 # OK Academy
 
-- ASP.NET Core 5.0
+- ASP.NET 5.0
 - ASP.NET Core MVC
 - Identity Server
 - Microservices
