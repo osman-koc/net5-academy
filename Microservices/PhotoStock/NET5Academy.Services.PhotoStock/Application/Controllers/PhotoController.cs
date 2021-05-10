@@ -23,5 +23,12 @@ namespace NET5Academy.Services.PhotoStock.Application.Controllers
             var response = await _photoService.SaveFile(photoFile, cancellationToken);
             return OkActionResult(response);
         }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(string name)
+        {
+            var response = await _photoService.DeleteFileByName(name);
+            return OkActionResult(response);
+        }
     }
 }
