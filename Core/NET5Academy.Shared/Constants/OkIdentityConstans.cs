@@ -4,6 +4,8 @@ namespace NET5Academy.Shared.Constants
 {
     public class OkIdentityConstans
     {
+        public const string UserIdKey = "sub";
+
         public static class ScopeName
         {
             public const string Roles = "roles";
