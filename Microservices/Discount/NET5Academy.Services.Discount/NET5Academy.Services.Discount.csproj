@@ -10,7 +10,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <Folder Include="Application\Controllers\" />
+    <Folder Include="Application\Models\" />
+    <Folder Include="Application\Services\" />
   </ItemGroup>
 
   <ItemGroup>
