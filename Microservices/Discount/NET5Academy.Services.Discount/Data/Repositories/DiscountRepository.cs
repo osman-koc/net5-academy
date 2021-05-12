@@ -18,24 +18,24 @@ namespace NET5Academy.Services.Discount.Data.Repositories
 
         public async Task<IEnumerable<Entities.Discount>> GetAll()
         {
-            return await _dbConnection.QueryAsync<Entities.Discount>("SELECT * FROM discounts WHERE isDeleted=0");
+            return await _dbConnection.QueryAsync<Entities.Discount>("SELECT * FROM discounts WHERE isDeleted=false");
         }
 
         public async Task<Entities.Discount> GetById(int id)
         {
-            return await _dbConnection.QueryFirstAsync<Entities.Discount>("SELECT * FROM discounts WHERE isDeleted=0 and id=@Id", new { Id = id });
+            return await _dbConnection.QueryFirstAsync<Entities.Discount>("SELECT * FROM discounts WHERE isDeleted=false and id=@Id", new { Id = id });
         }
 
         public async Task<Entities.Discount> GetByCodeAndUserId(string code, string userId)
         {
-            return await _dbConnection.QueryFirstAsync<Entities.Discount>("SELECT * FROM discounts WHERE isDeleted=0 and code=@Code and userId=@UserId", new { Code = code, UserId = userId });
+            return await _dbConnection.QueryFirstAsync<Entities.Discount>("SELECT * FROM discounts WHERE isDeleted=false and code=@Code and userId=@UserId", new { Code = code, UserId = userId });
         }
 
         public async Task<int> CreateAndGetId(Entities.Discount entity)
         {
             return await _dbConnection.QueryFirstAsync<int>(@"
-                    INSERT INTO discounts (userId,rate,code,createdDate,startDate,endDate,usedDate,isDeleted)
-                    VALUES (@UserId,@Rate,@Code,@CreatedDate,@StartDate,@EndDate,@UsedDate,@IsDeleted)
+                    INSERT INTO discounts (userId,rate,code,createdDate,startDate,endDate)
+                    VALUES (@UserId,@Rate,@Code,@CreatedDate,@StartDate,@EndDate)
                     RETURNING id
             ", entity);
         }
@@ -57,8 +57,8 @@ namespace NET5Academy.Services.Discount.Data.Repositories
         public async Task<bool> DeleteById(int id)
         {
             var status = await _dbConnection.ExecuteAsync(
-                "UPDATE discounts SET isDeleted=1,deletedDate=@DeletedDate WHERE id=@Id", 
-                new { Id = id, DeletedDate = DateTime.UtcNow });
+                "UPDATE discounts SET isDeleted=true,deletedDate=@DeletedDate WHERE id=@Id", 
+                new { Id = id, DeletedDate = DateTime.Now });
 
             return status > 0;
         }

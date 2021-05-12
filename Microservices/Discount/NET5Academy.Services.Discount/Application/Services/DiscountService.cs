@@ -22,7 +22,7 @@ namespace NET5Academy.Services.Discount.Application.Services
         public async Task<OkResponse<IEnumerable<DiscountDto>>> GetAll()
         {
             var entities = await _discountRepository.GetAll();
-            var dtos = _mapper.Map<IEnumerable<DiscountDto>>(entities) ?? new List<DiscountDto>();
+            var dtos = _mapper.Map<IEnumerable<DiscountDto>>(entities);
 
             return OkResponse<IEnumerable<DiscountDto>>.Success(HttpStatusCode.OK, dtos);
         }
