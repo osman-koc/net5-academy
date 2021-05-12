@@ -23,7 +23,12 @@ namespace NET5Academy.Services.Discount.Data.Repositories
 
         public async Task<Entities.Discount> GetById(int id)
         {
-            return await _dbConnection.QueryFirstAsync<Entities.Discount>("SELECT * FROM discounts WHERE isDeleted=false and id=@Id", new { Id = id });
+            return await _dbConnection.QueryFirstAsync<Entities.Discount>("SELECT TOP(1)* FROM discounts WHERE isDeleted=false and id=@Id", id);
+        }
+
+        public async Task<Entities.Discount> GetByCode(string code)
+        {
+            return await _dbConnection.QueryFirstAsync<Entities.Discount>("SELECT TOP(1)* FROM discounts WHERE isDeleted=false and code=@Code", code);
         }
 
         public async Task<Entities.Discount> GetByCodeAndUserId(string code, string userId)

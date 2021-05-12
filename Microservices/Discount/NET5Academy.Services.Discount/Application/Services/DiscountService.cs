@@ -67,10 +67,14 @@ namespace NET5Academy.Services.Discount.Application.Services
             {
                 return OkResponse<DiscountDto>.Error(HttpStatusCode.BadRequest, "Model is not valid");
             }
+            var existEntity = await _discountRepository.GetByCode(dto.Code);
+            if(existEntity != null)
+            {
+                return OkResponse<DiscountDto>.Error(HttpStatusCode.BadRequest, "Discount code already exists.");
+            }
 
             var entity = _mapper.Map<Data.Entities.Discount>(dto);
             entity.CreatedDate = DateTime.UtcNow;
-
             var id = await _discountRepository.CreateAndGetId(entity);
             if(id <= 0)
             {
@@ -88,8 +92,23 @@ namespace NET5Academy.Services.Discount.Application.Services
             {
                 return OkResponse<DiscountDto>.Error(HttpStatusCode.BadRequest, "Model is not valid");
             }
+            var entity = await _discountRepository.GetById(dto.Id);
+            if(entity == null)
+            {
+                return OkResponse<DiscountDto>.Error(HttpStatusCode.NotFound, "Discount is not found.");
+            }
+            if(entity.Code != dto.Code)
+            {
+                var existEntity = await _discountRepository.GetByCode(dto.Code);
+                if (existEntity != null)
+                    return OkResponse<DiscountDto>.Error(HttpStatusCode.BadRequest, "Discount code already exists.");
+            }
 
-            var entity = _mapper.Map<Data.Entities.Discount>(dto);
+            entity.Code = dto.Code;
+            entity.StartDate = dto.StartDate;
+            entity.EndDate = dto.EndDate;
+            entity.Rate = dto.Rate;
+
             var isSuccess = await _discountRepository.Update(entity);
             if (!isSuccess)
             {
@@ -106,8 +125,13 @@ namespace NET5Academy.Services.Discount.Application.Services
             {
                 return OkResponse<object>.Error(HttpStatusCode.BadRequest, "Discount id is not valid");
             }
+            var entity = await _discountRepository.GetById(id);
+            if(entity == null)
+            {
+                return OkResponse<object>.Error(HttpStatusCode.NotFound, "Discount is not found.");
+            }
 
-            var isSuccess = await _discountRepository.DeleteById(id);
+            var isSuccess = await _discountRepository.DeleteById(entity.Id);
             if (!isSuccess)
             {
                 return OkResponse<object>.Error(HttpStatusCode.InternalServerError, "Discount could not be deleted.");
