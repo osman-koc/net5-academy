@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace NET5Academy.Services.Discount.Data.Entities
+namespace NET5Academy.Services.Discount.Application.Dtos
 {
-    [Dapper.Contrib.Extensions.Table("discounts")]
-    public class Discount
+    public class DiscountUpdateDto
     {
         public int Id { get; set; }
         public string UserId { get; set; }
@@ -11,8 +10,5 @@ namespace NET5Academy.Services.Discount.Data.Entities
         public string Code { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime? EndDate { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime? DeletedDate { get; set; }
-        public bool IsDeleted { get; set; }
     }
 }
