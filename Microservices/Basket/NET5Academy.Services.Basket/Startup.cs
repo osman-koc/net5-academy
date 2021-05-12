@@ -7,6 +7,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using NET5Academy.Services.Basket.Application.Services;
 using NET5Academy.Services.Basket.Settings;
+using NET5Academy.Shared.Services;
 
 namespace NET5Academy.Services.Basket
 {
@@ -31,6 +32,9 @@ namespace NET5Academy.Services.Basket
             {
                 return serviceProvider.GetRequiredService<IOptions<RedisSettings>>().Value;
             });
+
+            services.AddHttpContextAccessor();
+            services.AddScoped<ISharedIdentityService, SharedIdentityService>();
 
             services.AddSingleton<IRedisService, RedisService>();
         }
