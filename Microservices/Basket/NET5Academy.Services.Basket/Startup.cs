@@ -37,6 +37,7 @@ namespace NET5Academy.Services.Basket
             services.AddScoped<ISharedIdentityService, SharedIdentityService>();
 
             services.AddSingleton<IRedisService, RedisService>();
+            services.AddSingleton<IBasketService, BasketService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
