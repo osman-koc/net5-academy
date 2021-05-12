@@ -39,6 +39,7 @@ namespace NET5Academy.Services.Basket.Application.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateOrUpdate([FromBody] BasketDto dto)
         {
+            dto.UserId = _sharedIdentityService.GetUserId();
             var response = await _basketService.CreateOrUpdate(dto);
             return OkActionResult(response);
         }
