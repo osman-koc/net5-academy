@@ -30,6 +30,7 @@ namespace NET5Academy.IdentityServer
                 new ApiScope(OkIdentityConstans.ScopeName.CatalogAPI, OkIdentityConstans.ScopeDisplay.CatalogAPI),
                 new ApiScope(OkIdentityConstans.ScopeName.PhotoStockAPI, OkIdentityConstans.ScopeDisplay.PhotoStockAPI),
                 new ApiScope(OkIdentityConstans.ScopeName.BasketAPI, OkIdentityConstans.ScopeDisplay.BasketAPI),
+                new ApiScope(OkIdentityConstans.ScopeName.DiscountAPI, OkIdentityConstans.ScopeDisplay.DiscountAPI),
             };
 
         public static IEnumerable<ApiResource> ApiResources =>
@@ -39,6 +40,7 @@ namespace NET5Academy.IdentityServer
                 new ApiResource(OkIdentityConstans.ResourceName.CatalogAPI) { Scopes = { OkIdentityConstans.ScopeName.CatalogAPI } },
                 new ApiResource(OkIdentityConstans.ResourceName.PhotoStockAPI) { Scopes = { OkIdentityConstans.ScopeName.PhotoStockAPI } },
                 new ApiResource(OkIdentityConstans.ResourceName.BasketAPI) { Scopes = { OkIdentityConstans.ScopeName.BasketAPI } },
+                new ApiResource(OkIdentityConstans.ResourceName.DiscountAPI) { Scopes = { OkIdentityConstans.ScopeName.DiscountAPI } },
             };
 
         public static IEnumerable<Client> Clients =>
@@ -50,10 +52,10 @@ namespace NET5Academy.IdentityServer
                     ClientName = OkIdentityConstans.Clients.WebMvcClient.Name,
                     ClientSecrets = { new Secret(OkIdentityConstans.Clients.WebMvcClient.Secret.Sha256()) },
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
-                    AllowedScopes = { 
-                        IdentityServerConstants.LocalApi.ScopeName, 
-                        OkIdentityConstans.ScopeName.CatalogAPI, 
-                        OkIdentityConstans.ScopeName.PhotoStockAPI 
+                    AllowedScopes = {
+                        IdentityServerConstants.LocalApi.ScopeName,
+                        OkIdentityConstans.ScopeName.CatalogAPI,
+                        OkIdentityConstans.ScopeName.PhotoStockAPI
                     }
                 },
                 new Client
@@ -70,8 +72,10 @@ namespace NET5Academy.IdentityServer
                         IdentityServerConstants.StandardScopes.Email,
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.OfflineAccess, //for refresh token
+
                         OkIdentityConstans.ScopeName.Roles,
                         OkIdentityConstans.ScopeName.BasketAPI,
+                        OkIdentityConstans.ScopeName.DiscountAPI,
                     },
                     AccessTokenLifetime = 3*3600, //3 hour
                     RefreshTokenExpiration = TokenExpiration.Absolute,

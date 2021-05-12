@@ -12,13 +12,16 @@ namespace NET5Academy.Shared.Constants
             public const string CatalogAPI = "CatalogApi";
             public const string PhotoStockAPI = "PhotoStockApi";
             public const string BasketAPI = "BasketApi";
+            public const string DiscountAPI = "DiscountApi";
         }
         public static class ScopeDisplay
         {
+            public const string Roles = "Roles";
             public const string IdentityAPI = "IdentityServer API";
             public const string CatalogAPI = "Catalog API full permission";
             public const string PhotoStockAPI = "PhotoStock API full permission";
             public const string BasketAPI = "Basket API full permission";
+            public const string DiscountAPI = "Discount API full permission";
         }
 
         public static class ResourceName
@@ -26,6 +29,7 @@ namespace NET5Academy.Shared.Constants
             public const string CatalogAPI = "resource_catalog";
             public const string PhotoStockAPI = "resource_photostock";
             public const string BasketAPI = "resource_basket";
+            public const string DiscountAPI = "resource_discount";
         }
 
         public static class Clients
