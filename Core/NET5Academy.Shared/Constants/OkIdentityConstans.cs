@@ -4,23 +4,28 @@ namespace NET5Academy.Shared.Constants
 {
     public class OkIdentityConstans
     {
+        public const string UserIdKey = "sub";
+
         public static class ScopeName
         {
             public const string Roles = "roles";
             public const string CatalogAPI = "CatalogApi";
             public const string PhotoStockAPI = "PhotoStockApi";
+            public const string BasketAPI = "BasketApi";
         }
         public static class ScopeDisplay
         {
             public const string IdentityAPI = "IdentityServer API";
             public const string CatalogAPI = "Catalog API full permission";
             public const string PhotoStockAPI = "PhotoStock API full permission";
+            public const string BasketAPI = "Basket API full permission";
         }
 
         public static class ResourceName
         {
             public const string CatalogAPI = "resource_catalog";
             public const string PhotoStockAPI = "resource_photostock";
+            public const string BasketAPI = "resource_basket";
         }
 
         public static class Clients
