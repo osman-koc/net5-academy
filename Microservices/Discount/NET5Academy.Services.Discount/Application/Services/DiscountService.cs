@@ -69,6 +69,8 @@ namespace NET5Academy.Services.Discount.Application.Services
             }
 
             var entity = _mapper.Map<Data.Entities.Discount>(dto);
+            entity.CreatedDate = DateTime.UtcNow;
+
             var id = await _discountRepository.CreateAndGetId(entity);
             if(id <= 0)
             {

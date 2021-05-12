@@ -58,7 +58,7 @@ namespace NET5Academy.Services.Discount.Data.Repositories
         {
             var status = await _dbConnection.ExecuteAsync(
                 "UPDATE discounts SET isDeleted=true,deletedDate=@DeletedDate WHERE id=@Id", 
-                new { Id = id, DeletedDate = DateTime.Now });
+                new { Id = id, DeletedDate = DateTime.UtcNow });
 
             return status > 0;
         }
