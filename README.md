@@ -1,6 +1,8 @@
 # NET5 Academy
 It is a course system created to apply current technologies. Instructors and trainees will be able to participate and use the system.
 
+<img src="https://img.shields.io/github/issues/osman-koc/net5-academy" /> <img src="https://img.shields.io/github/forks/osman-koc/net5-academy" /> <img src="https://img.shields.io/github/stars/osman-koc/net5-academy" /> <img src="https://img.shields.io/github/repo-size/osman-koc/net5-academy" /> <img src="https://img.shields.io/github/downloads/osman-koc/net5-academy/total" />
+
 ## Used Techs
 - ASP.NET 5.0
 - ASP.NET Core MVC
@@ -16,6 +18,8 @@ It is a course system created to apply current technologies. Instructors and tra
 - RabbitMQ
 - AutoMapper
 
+<img src="https://img.shields.io/badge/ASP.NET%20Core-5.0-blueviolet" /> <img src="https://img.shields.io/badge/ASP.NET%20MVC%20Core-5.2-blueviolet" /> <img src="https://img.shields.io/badge/IdentityServer4%20-4.1.1-orange" /> <img src="https://img.shields.io/badge/MSSQL%20Server%20(linux)-2017-blue" /> <img src="https://img.shields.io/badge/MongoDB-latest-green" /> <img src="https://img.shields.io/badge/Redis-latest-green" />
+
 ## Diagram
 ![Diagram](diagram.jpg)
 
@@ -29,4 +33,5 @@ It is a course system created to apply current technologies. Instructors and tra
 - Payment microservice
 - Order microservice
 - API Gateway
+- Docker containers
 - MVC Web Application
