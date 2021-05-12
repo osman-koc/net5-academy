@@ -56,7 +56,7 @@ namespace NET5Academy.Services.Basket.Application.Services
 
             var isSuccess = await _redisService.GetDb().KeyDeleteAsync(userId);
             var response = isSuccess
-                ? OkResponse<object>.Success(HttpStatusCode.OK, true)
+                ? OkResponse<object>.Success(HttpStatusCode.NoContent)
                 : OkResponse<object>.Error(HttpStatusCode.NotFound, "Basket not found!");
 
             return response;
