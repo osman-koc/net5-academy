@@ -3,12 +3,12 @@ It is a course system created to apply current technologies. Instructors and tra
 
 <img src="https://img.shields.io/github/issues/osman-koc/net5-academy" /> <img src="https://img.shields.io/github/forks/osman-koc/net5-academy" /> <img src="https://img.shields.io/github/stars/osman-koc/net5-academy" /> <img src="https://img.shields.io/github/repo-size/osman-koc/net5-academy" /> <img src="https://img.shields.io/github/downloads/osman-koc/net5-academy/total" />
 
-## Used Techs
+## Used Techs and Methods
 - ASP.NET 5.0
 - ASP.NET Core MVC
 - Identity Server
 - Microservices
-- API Gateway (Web, Mobile, Ocelot)
+- API Gateway (Ocelot)
 - Entity Framework Core
 - SQL Server Express
 - PostgreSQL
@@ -17,6 +17,9 @@ It is a course system created to apply current technologies. Instructors and tra
 - Redis
 - RabbitMQ
 - AutoMapper
+- Domain Driven Design
+- CQRS
+- Portainer
 
 <img src="https://img.shields.io/badge/ASP.NET%20Core-5.0-blueviolet" /> <img src="https://img.shields.io/badge/ASP.NET%20MVC%20Core-5.2-blueviolet" /> <img src="https://img.shields.io/badge/IdentityServer4%20-4.1.1-orange" /> <img src="https://img.shields.io/badge/MSSQL%20Server%20(linux)-2017-blue" /> <img src="https://img.shields.io/badge/MongoDB-latest-green" /> <img src="https://img.shields.io/badge/Redis-latest-green" />
 
@@ -25,16 +28,16 @@ It is a course system created to apply current technologies. Instructors and tra
 
 ## Features
 - Shared / Library <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="20" />
-- IdentityServer <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="20" />
-- Catalog microservice <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="20" />
+- IdentityServer (MSSQL, EF Core) <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="20" />
+- Catalog microservice (MongoDB) <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="20" />
 - PhotoStock microservice <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="20" />
-- Basket microservice  <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="20" />
-- Discount microservice <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="20" />
-- Order microservice <img src="https://image.flaticon.com/icons/png/128/1716/1716746.png" width="20" />
+- Basket microservice (Redis)  <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="20" />
+- Discount microservice (PostgreSQL, Dapper) <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="20" />
+- Order microservice (MSSQL, EF Core) <img src="https://image.flaticon.com/icons/png/128/1716/1716746.png" width="20" />
 - Payment microservice
-- API Gateway
+- API Gateway (Ocelot)
 - ASP.NET Core MVC Web Application
-- MassTransit RabbitMQ
+- MassTransit RabbitMQ (Message Broker)
 - Eventual Consistency
 - Token Exchange
 - Docker Containers
