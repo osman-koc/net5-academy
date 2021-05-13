@@ -33,7 +33,7 @@ It is a course system created to apply current technologies. Instructors and tra
 - PhotoStock microservice <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="20" />
 - Basket microservice (Redis)  <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="20" />
 - Discount microservice (PostgreSQL, Dapper) <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="20" />
-- Order microservice (MSSQL, EF Core) <img src="https://image.flaticon.com/icons/png/128/1716/1716746.png" width="20" />
+- Order microservice (MSSQL, EF Core, Domain Driven Design, CQRS) <img src="https://image.flaticon.com/icons/png/128/1716/1716746.png" width="20" />
 - Payment microservice
 - API Gateway (Ocelot)
 - ASP.NET Core MVC Web Application
