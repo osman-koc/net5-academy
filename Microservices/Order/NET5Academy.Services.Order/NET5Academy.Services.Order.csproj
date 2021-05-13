@@ -12,4 +12,9 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\NET5Academy.Shared\NET5Academy.Shared.csproj" />
+    <ProjectReference Include="..\NET5Academy.Services.Order.Application\NET5Academy.Services.Order.Application.csproj" />
+  </ItemGroup>
+
 </Project>

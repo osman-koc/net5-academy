@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NET5Academy.Services.Order.Domain\NET5Academy.Services.Order.Domain.csproj" />
+    <ProjectReference Include="..\NET5Academy.Services.Order.Infrastructure\NET5Academy.Services.Order.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
