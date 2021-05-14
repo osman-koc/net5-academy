@@ -17,6 +17,7 @@ It is a course system created to apply current technologies. Instructors and tra
 - Redis
 - RabbitMQ
 - AutoMapper
+- SOLID principle
 - Domain Driven Design
 - CQRS
 - Portainer
