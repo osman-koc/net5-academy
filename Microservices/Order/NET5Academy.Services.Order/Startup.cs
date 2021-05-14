@@ -1,3 +1,4 @@
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using NET5Academy.Services.Order.Infrastructure;
+using NET5Academy.Shared.Services;
 
 namespace NET5Academy.Services.Order
 {
@@ -19,12 +21,6 @@ namespace NET5Academy.Services.Order
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "NET5Academy.Services.Order", Version = "v1" });
-            });
-
             services.AddDbContext<OrderDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), configure =>
@@ -32,6 +28,18 @@ namespace NET5Academy.Services.Order
                     configure.MigrationsAssembly("NET5Academy.Services.Order.Infrastructure");
                 });
             });
+
+            services.AddControllers();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "NET5Academy.Services.Order", Version = "v1" });
+            });
+
+            services.AddHttpContextAccessor();
+            services.AddScoped<ISharedIdentityService, SharedIdentityService>();
+
+            services.AddMediatR(typeof(Application.DDD.Handlers.CreateOrderCommandHandler).Assembly);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
