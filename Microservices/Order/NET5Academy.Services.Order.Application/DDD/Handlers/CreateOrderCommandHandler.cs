@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using NET5Academy.Services.Order.Application.Commands;
+using NET5Academy.Services.Order.Application.DDD.Commands;
 using NET5Academy.Services.Order.Application.Dtos;
 using NET5Academy.Services.Order.Application.Mapping;
 using NET5Academy.Services.Order.Domain.OrderAggregate;
@@ -9,7 +9,7 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NET5Academy.Services.Order.Application.Handlers
+namespace NET5Academy.Services.Order.Application.DDD.Handlers
 {
     public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, OkResponse<OrderResponseDto>>
     {
