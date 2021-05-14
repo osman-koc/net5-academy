@@ -11,6 +11,7 @@ namespace NET5Academy.Services.Order.Domain.OrderAggregate
         public string ZipCode { get; private set; }
         public string Detail { get; private set; }
 
+        public Address() { }
         public Address(string city, string county, string street, string zipCode, string detail)
         {
             City = city;

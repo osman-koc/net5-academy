@@ -1,6 +1,8 @@
-﻿namespace NET5Academy.Services.Order.Domain.OrderAggregate
+﻿using NET5Academy.Shared.Domain;
+
+namespace NET5Academy.Services.Order.Domain.OrderAggregate
 {
-    public class OrderItem
+    public class OrderItem : OkEntity
     {
         public string ProductId { get; private set; }
         public string ProductName { get; private set; }
@@ -8,6 +10,7 @@
         public decimal Price { get; private set; }
         public int Quantity { get; private set; }
 
+        public OrderItem() { }
         public OrderItem(string productId, string productName, string imageUrl, decimal price, int quantity)
         {
             ProductId = productId;
