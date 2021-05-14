@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace NET5Academy.Services.Order.Application.Queries
 {
-    public class GetOrdersByUserIdQuery : IRequest<OkResponse<IEnumerable<OrderDto>>>
+    public class GetOrdersByUserIdQuery : IRequest<OkResponse<List<OrderDto>>>
     {
         public string UserId { get; set; }
     }
