@@ -31,6 +31,7 @@ namespace NET5Academy.IdentityServer
                 new ApiScope(OkIdentityConstans.ScopeName.PhotoStockAPI, OkIdentityConstans.ScopeDisplay.PhotoStockAPI),
                 new ApiScope(OkIdentityConstans.ScopeName.BasketAPI, OkIdentityConstans.ScopeDisplay.BasketAPI),
                 new ApiScope(OkIdentityConstans.ScopeName.DiscountAPI, OkIdentityConstans.ScopeDisplay.DiscountAPI),
+                new ApiScope(OkIdentityConstans.ScopeName.OrderAPI, OkIdentityConstans.ScopeDisplay.OrderAPI),
             };
 
         public static IEnumerable<ApiResource> ApiResources =>
@@ -41,6 +42,7 @@ namespace NET5Academy.IdentityServer
                 new ApiResource(OkIdentityConstans.ResourceName.PhotoStockAPI) { Scopes = { OkIdentityConstans.ScopeName.PhotoStockAPI } },
                 new ApiResource(OkIdentityConstans.ResourceName.BasketAPI) { Scopes = { OkIdentityConstans.ScopeName.BasketAPI } },
                 new ApiResource(OkIdentityConstans.ResourceName.DiscountAPI) { Scopes = { OkIdentityConstans.ScopeName.DiscountAPI } },
+                new ApiResource(OkIdentityConstans.ResourceName.OrderAPI) { Scopes = { OkIdentityConstans.ScopeName.OrderAPI } },
             };
 
         public static IEnumerable<Client> Clients =>
@@ -76,6 +78,7 @@ namespace NET5Academy.IdentityServer
                         OkIdentityConstans.ScopeName.Roles,
                         OkIdentityConstans.ScopeName.BasketAPI,
                         OkIdentityConstans.ScopeName.DiscountAPI,
+                        OkIdentityConstans.ScopeName.OrderAPI,
                     },
                     AccessTokenLifetime = 3*3600, //3 hour
                     RefreshTokenExpiration = TokenExpiration.Absolute,
