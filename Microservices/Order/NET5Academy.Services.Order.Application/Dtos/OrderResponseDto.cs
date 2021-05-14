@@ -2,6 +2,10 @@
 {
     public class OrderResponseDto
     {
-        public int OrderId { get; set; }
+        public int OrderId { get; private set; }
+        public OrderResponseDto(int orderId)
+        {
+            OrderId = orderId;
+        }
     }
 }
