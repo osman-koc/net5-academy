@@ -10,11 +10,11 @@ namespace NET5Academy.Services.Order.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OrderControllercs : OkBaseController
+    public class OrderController : OkBaseController
     {
         private readonly IMediator _mediator;
         private readonly ISharedIdentityService _sharedIdentityService;
-        public OrderControllercs(IMediator mediator, ISharedIdentityService sharedIdentityService)
+        public OrderController(IMediator mediator, ISharedIdentityService sharedIdentityService)
         {
             _mediator = mediator;
             _sharedIdentityService = sharedIdentityService;
