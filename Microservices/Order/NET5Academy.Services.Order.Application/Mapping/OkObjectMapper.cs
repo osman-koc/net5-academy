@@ -5,7 +5,7 @@ namespace NET5Academy.Services.Order.Application.Mapping
 {
     public class OkObjectMapper
     {
-        private static readonly Lazy<IMapper> _lazy = new Lazy<IMapper>(() =>
+        private static readonly Lazy<IMapper> _lazy = new(() =>
         {
             var config = new MapperConfiguration(options =>
             {

@@ -1,4 +1,4 @@
-﻿namespace NET5Academy.Services.Basket.Settings
+﻿namespace NET5Academy.Shared.Config
 {
     public interface IRedisSettings
     {
