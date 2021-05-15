@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NET5Academy.Services.Catalo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{305BF5E9-7A06-46E1-AE7A-9EB5BC562C37}"
 	ProjectSection(SolutionItems) = preProject
-		Ports.txt = Ports.txt
+		..\Ports.txt = ..\Ports.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{FA60ED1D-3E69-4634-9C0C-3215E78D2D66}"
@@ -46,7 +46,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NET5Academy.Services.Order.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Payment", "Payment", "{E9A3891A-EB1F-4CA5-A66D-740BD80FAE31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET5Academy.Services.Payment", "Microservices\Payment\NET5Academy.Services.Payment\NET5Academy.Services.Payment.csproj", "{5F03849E-AC05-4DEE-BB83-0F9B97457EE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NET5Academy.Services.Payment", "Microservices\Payment\NET5Academy.Services.Payment\NET5Academy.Services.Payment.csproj", "{5F03849E-AC05-4DEE-BB83-0F9B97457EE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
