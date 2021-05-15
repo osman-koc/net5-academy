@@ -7,3 +7,4 @@
 - Client credentials
 - Resource owner credentials
 
+![IdentityDiagram](img/diagram_identity.jpg)

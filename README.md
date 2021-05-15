@@ -26,7 +26,9 @@ It is a course system created to apply current technologies. Instructors and tra
 <img src="https://img.shields.io/badge/ASP.NET%20Core-5.0-blueviolet" /> <img src="https://img.shields.io/badge/ASP.NET%20MVC%20Core-5.2-blueviolet" /> <img src="https://img.shields.io/badge/IdentityServer4%20-4.1.1-orange" /> <img src="https://img.shields.io/badge/MSSQL%20Server%20(linux)-2017-blue" /> <img src="https://img.shields.io/badge/MongoDB-latest-green" /> <img src="https://img.shields.io/badge/Redis-latest-green" />
 
 ## Architecture
-![Diagram](img/diagram.jpg)
+![GeneralDiagram](img/diagram_general.jpg)
+
+![IdentityDiagram](img/diagram_identity.jpg)
 
 ## Features
 - Shared / Library <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="20" />
