@@ -7,23 +7,20 @@ It is a course system created to apply current technologies. Instructors and tra
 - ASP.NET 5.0
 - ASP.NET Core MVC
 - Microservices
-- API Gateway (Ocelot)
-- Identity Server & JWT Token
-- SQL Server Express (MS-SQL)
-- PostgreSQL
-- MongoDB
-- Redis
-- RabbitMQ
-- Entity Framework Core
-- Dapper
+- API Gateway with Ocelot library
+- Identity Server & JWT Token & Token Exchange
+- SQL Server Express (MS-SQL) & PostgreSQL & MongoDB & Redis & RabbitMQ
+- Entity Framework Core & Dapper
 - AutoMapper
 - SOLID principle
-- Domain Driven Design
-- CQRS
+- Domain Driven Design & CQRS
 - Portainer
 - Swagger
+- Bootstrap 5.0
+- FluentValidation
+- Docker & Kubernetes & Helm
 
-<img src="https://img.shields.io/badge/ASP.NET%20Core-5.0-blueviolet" /> <img src="https://img.shields.io/badge/ASP.NET%20MVC%20Core-5.2-blueviolet" /> <img src="https://img.shields.io/badge/IdentityServer4%20-4.1.1-orange" /> <img src="https://img.shields.io/badge/MSSQL%20Server%20(linux)-2017-blue" /> <img src="https://img.shields.io/badge/MongoDB-latest-green" /> <img src="https://img.shields.io/badge/Redis-latest-green" />
+<img src="https://img.shields.io/badge/ASP.NET%20Core-5.0-blueviolet" /> <img src="https://img.shields.io/badge/ASP.NET%20MVC%20Core-5.2-blueviolet" /> <img src="https://img.shields.io/badge/IdentityServer4%20-4.1.1-orange" /> <img src="https://img.shields.io/badge/MSSQL%20Server%20(linux)-2017-blue" /> <img src="https://img.shields.io/badge/MongoDB-latest-green" /> <img src="https://img.shields.io/badge/Redis-latest-green" /> <img src="https://img.shields.io/badge/Bootstrap-5.0-blueviolet" />
 
 ## Architecture
 ![GeneralDiagram](img/diagram_general.jpg)
@@ -41,7 +38,17 @@ It is a course system created to apply current technologies. Instructors and tra
 - Payment microservice <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="20" />
 - API Gateway (Ocelot) <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="20" />
 - ASP.NET Core MVC Web Application <img src="https://image.flaticon.com/icons/png/128/1716/1716746.png" width="20" />
+  - Cookie based authentication / authorization
+  - Bootstrap 5.0 Beta
+  - IdentityService & UserService
+  - CatalogService & CourseService
+  - ClientCredentialTokenService
+  - Layout & Home
+  - BasketService & DiscountService
+  - FluentValidation
+  - PaymentService & OrderService
 - MassTransit RabbitMQ (Message Broker)
 - Eventual Consistency
 - Token Exchange
 - Docker Containers
+- Kubernetes & Helm
