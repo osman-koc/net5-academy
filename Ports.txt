@@ -2,8 +2,9 @@ Other
 -IdentityServer: 8001
 
 Microservices
--CatalogAPI: 9001
+-Catalog: 9001
 -PhotoStock: 9002
 -Basket: 9003
 -Discount: 9004
 -Order: 9005
+-Payment: 9006
