@@ -1,7 +1,7 @@
 # NET5 Academy
 It is a course system created to apply current technologies. Instructors and trainees will be able to participate and use the system.
 
-<img src="https://img.shields.io/github/issues/osman-koc/net5-academy" /> <img src="https://img.shields.io/github/forks/osman-koc/net5-academy" /> <img src="https://img.shields.io/github/stars/osman-koc/net5-academy" /> <img src="https://img.shields.io/github/repo-size/osman-koc/net5-academy" /> <img src="https://img.shields.io/github/downloads/osman-koc/net5-academy/total" />
+<a href="https://github.com/osman-koc/net5-academy/issues" target="_blank"><img src="https://img.shields.io/github/issues/osman-koc/net5-academy" /></a> <a href="https://github.com/osman-koc/net5-academy/network/members" target="_blank"><img src="https://img.shields.io/github/forks/osman-koc/net5-academy" /></a> <a href="https://github.com/osman-koc/net5-academy/stargazers" target="_blank"><img src="https://img.shields.io/github/stars/osman-koc/net5-academy" /></a> <a href="https://github.com/osman-koc/net5-academy/releases" target="_black"><img src="https://img.shields.io/github/downloads/osman-koc/net5-academy/total" /></a>
 
 ## Used Techs and Methods
 - ASP.NET 5.0
