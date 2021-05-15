@@ -6,10 +6,10 @@
 - AutoMapper
 - MediatR (MediatR.Extensions.Microsoft.DependencyInjection)
 - EF Core 
-Microsoft.EntityFrameworkCore
-Microsoft.EntityFrameworkCore.SqlServer
-Microsoft.EntityFrameworkCore.Tools
-Microsoft.EntityFrameworkCore.Design
+  - Microsoft.EntityFrameworkCore 
+  - Microsoft.EntityFrameworkCore.SqlServer 
+  - Microsoft.EntityFrameworkCore.Tools 
+  - Microsoft.EntityFrameworkCore.Design 
 
 
 ## Layers
