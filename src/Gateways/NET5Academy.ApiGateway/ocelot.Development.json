@@ -15,7 +15,11 @@
       ],
       "UpstreamPathTemplate": "/catalogms/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
-      "UpstreamSchema": "http"
+      "UpstreamSchema": "http",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "GatewayAuthenticationSchema",
+        "AllowedScopes": [ "CatalogApi" ]
+      }
     },
     //PhotoStock API
     {
@@ -29,7 +33,11 @@
       ],
       "UpstreamPathTemplate": "/photostockms/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
-      "UpstreamSchema": "http"
+      "UpstreamSchema": "http",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "GatewayAuthenticationSchema",
+        "AllowedScopes": [ "PhotoStockApi" ]
+      }
     },
     //Basket API
     {
@@ -43,7 +51,11 @@
       ],
       "UpstreamPathTemplate": "/basketms/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
-      "UpstreamSchema": "http"
+      "UpstreamSchema": "http",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "GatewayAuthenticationSchema",
+        "AllowedScopes": [ "BasketApi" ]
+      }
     },
     //Discount API
     {
@@ -57,7 +69,11 @@
       ],
       "UpstreamPathTemplate": "/discountms/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
-      "UpstreamSchema": "http"
+      "UpstreamSchema": "http",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "GatewayAuthenticationSchema",
+        "AllowedScopes": [ "DiscountApi" ]
+      }
     },
     //Order API
     {
@@ -71,7 +87,11 @@
       ],
       "UpstreamPathTemplate": "/orderms/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
-      "UpstreamSchema": "http"
+      "UpstreamSchema": "http",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "GatewayAuthenticationSchema",
+        "AllowedScopes": [ "OrderApi" ]
+      }
     },
     //Payment API
     {
@@ -85,7 +105,11 @@
       ],
       "UpstreamPathTemplate": "/paymentms/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
-      "UpstreamSchema": "http"
+      "UpstreamSchema": "http",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "GatewayAuthenticationSchema",
+        "AllowedScopes": [ "PaymentApi" ]
+      }
     }
   ]
 }
