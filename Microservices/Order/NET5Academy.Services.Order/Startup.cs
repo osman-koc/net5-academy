@@ -1,20 +1,21 @@
+using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using NET5Academy.Services.Discount.Application.Services;
-using NET5Academy.Services.Discount.Data.Repositories;
+using NET5Academy.Services.Order.Infrastructure;
 using NET5Academy.Shared.Constants;
 using NET5Academy.Shared.Config;
 using NET5Academy.Shared.Services;
 using System.IdentityModel.Tokens.Jwt;
 
-namespace NET5Academy.Services.Discount
+namespace NET5Academy.Services.Order
 {
     public class Startup
     {
@@ -51,17 +52,22 @@ namespace NET5Academy.Services.Discount
                 .AddJwtBearer(options =>
                 {
                     options.Authority = _configuration["IdentityServerUri"];
-                    options.Audience = OkIdentityConstans.ResourceName.DiscountAPI;
+                    options.Audience = OkIdentityConstans.ResourceName.OrderAPI;
                     options.RequireHttpsMetadata = false;
                 });
+
+            services.AddDbContext<OrderDbContext>(options =>
+            {
+                options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"), configure =>
+                {
+                    configure.MigrationsAssembly("NET5Academy.Services.Order.Infrastructure");
+                });
+            });
 
             services.AddHttpContextAccessor();
             services.AddScoped<ISharedIdentityService, SharedIdentityService>();
 
-            services.AddAutoMapper(typeof(Startup));
-
-            services.AddScoped<IDiscountRepository, DiscountRepository>();
-            services.AddScoped<IDiscountService, DiscountService>();
+            services.AddMediatR(typeof(Application.DDD.Handlers.CreateOrderCommandHandler).Assembly);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

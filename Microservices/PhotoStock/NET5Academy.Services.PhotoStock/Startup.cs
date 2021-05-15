@@ -8,15 +8,24 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using NET5Academy.Services.PhotoStock.Application.Services;
 using NET5Academy.Shared.Constants;
+using NET5Academy.Shared.Config;
 
 namespace NET5Academy.Services.PhotoStock
 {
     public class Startup
     {
-        public IConfiguration Configuration { get; }
+        private readonly IConfiguration _configuration;
+        private readonly ISwaggerSettings _swaggerSettings;
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            _configuration = configuration;
+            _swaggerSettings = new SwaggerSettings()
+            {
+                ApiName = configuration.GetValue<string>("Swagger:ApiName"),
+                Version = configuration.GetValue<string>("Swagger:Version"),
+                EndpointUrl = configuration.GetValue<string>("Swagger:EndpointUrl"),
+                EndpointName = configuration.GetValue<string>("Swagger:EndpointName")
+            };
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -28,13 +37,13 @@ namespace NET5Academy.Services.PhotoStock
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "NET5Academy.Services.PhotoStock", Version = "v1" });
+                c.SwaggerDoc(_swaggerSettings.Version, new OpenApiInfo { Title = _swaggerSettings.ApiName, Version = _swaggerSettings.Version });
             });
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
-                    options.Authority = Configuration["IdentityServerUri"];
+                    options.Authority = _configuration["IdentityServerUri"];
                     options.Audience = OkIdentityConstans.ResourceName.PhotoStockAPI;
                     options.RequireHttpsMetadata = false;
                 });
@@ -48,7 +57,7 @@ namespace NET5Academy.Services.PhotoStock
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "NET5Academy.Services.PhotoStock v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint(_swaggerSettings.EndpointUrl, _swaggerSettings.EndpointName));
             }
 
             app.UseStaticFiles();

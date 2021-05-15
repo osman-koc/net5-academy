@@ -1,4 +1,4 @@
-﻿namespace NET5Academy.Services.Catalog.Settings
+﻿namespace NET5Academy.Shared.Config
 {
     public class MongoSettings : IMongoSettings
     {

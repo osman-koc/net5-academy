@@ -1,15 +1,13 @@
-﻿using NET5Academy.Services.Basket.Settings;
+﻿using NET5Academy.Shared.Config;
 using StackExchange.Redis;
 
 namespace NET5Academy.Services.Basket.Application.Services
 {
     public class RedisService : IRedisService
     {
-        private readonly IRedisSettings _redisSettings;
         private readonly ConnectionMultiplexer _conMultiplexer;
         public RedisService(IRedisSettings redisSettings)
         {
-            _redisSettings = redisSettings;
             _conMultiplexer = ConnectionMultiplexer.Connect($"{redisSettings.Host}:{redisSettings.Port}");
         }
 

@@ -8,19 +8,26 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using NET5Academy.Services.Catalog.Application.Services;
-using NET5Academy.Services.Catalog.Settings;
 using NET5Academy.Shared.Constants;
+using NET5Academy.Shared.Config;
 
 namespace NET5Academy.Services.Catalog
 {
     public class Startup
     {
+        private readonly IConfiguration _configuration;
+        private readonly ISwaggerSettings _swaggerSettings;
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            _configuration = configuration;
+            _swaggerSettings = new SwaggerSettings()
+            {
+                ApiName = configuration.GetValue<string>("Swagger:ApiName"),
+                Version = configuration.GetValue<string>("Swagger:Version"),
+                EndpointUrl = configuration.GetValue<string>("Swagger:EndpointUrl"),
+                EndpointName = configuration.GetValue<string>("Swagger:EndpointName")
+            };
         }
-
-        public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
         {
@@ -31,20 +38,20 @@ namespace NET5Academy.Services.Catalog
             
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "NET5Academy.Services.Catalog", Version = "v1" });
+                c.SwaggerDoc(_swaggerSettings.Version, new OpenApiInfo { Title = _swaggerSettings.ApiName, Version = _swaggerSettings.Version });
             });
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
-                    options.Authority = Configuration["IdentityServerUri"];
+                    options.Authority = _configuration["IdentityServerUri"];
                     options.Audience = OkIdentityConstans.ResourceName.CatalogAPI;
                     options.RequireHttpsMetadata = false;
                 });
 
             services.AddAutoMapper(typeof(Startup));
 
-            services.Configure<MongoSettings>(Configuration.GetSection("MongoSettings"));
+            services.Configure<MongoSettings>(_configuration.GetSection("MongoSettings"));
             services.AddSingleton<IMongoSettings>(serviceProvider =>
             {
                 return serviceProvider.GetRequiredService<IOptions<MongoSettings>>().Value;
@@ -60,7 +67,7 @@ namespace NET5Academy.Services.Catalog
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "NET5Academy.Services.Catalog v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint(_swaggerSettings.EndpointUrl, _swaggerSettings.EndpointName));
             }
 
             app.UseRouting();

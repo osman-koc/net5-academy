@@ -6,3 +6,4 @@ Microservices
 -PhotoStock: 9002
 -Basket: 9003
 -Discount: 9004
+-Order: 9005
