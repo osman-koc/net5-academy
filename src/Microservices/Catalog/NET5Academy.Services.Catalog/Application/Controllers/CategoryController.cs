@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NET5Academy.Services.Catalog.Application.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class CategoryController : OkBaseController
     {

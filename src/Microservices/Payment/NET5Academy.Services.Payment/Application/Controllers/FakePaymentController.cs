@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace NET5Academy.Services.Payment.Application.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class FakePaymentController : OkBaseController
     {
