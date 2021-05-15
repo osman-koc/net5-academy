@@ -6,16 +6,16 @@ It is a course system created to apply current technologies. Instructors and tra
 ## Used Techs and Methods
 - ASP.NET 5.0
 - ASP.NET Core MVC
-- Identity Server
 - Microservices
 - API Gateway (Ocelot)
-- Entity Framework Core
-- SQL Server Express
+- Identity Server & JWT Token
+- SQL Server Express (MS-SQL)
 - PostgreSQL
 - MongoDB
-- Dapper
 - Redis
 - RabbitMQ
+- Entity Framework Core
+- Dapper
 - AutoMapper
 - SOLID principle
 - Domain Driven Design
