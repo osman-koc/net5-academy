@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NET5Academy.Services.Order.Controllers
 {
-    [Route("api/v1")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class OrderController : OkBaseController
     {
