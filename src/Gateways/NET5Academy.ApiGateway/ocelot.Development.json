@@ -13,7 +13,7 @@
           "Port": 9001
         }
       ],
-      "UpstreamPathTemplate": "/catalog/{everything}",
+      "UpstreamPathTemplate": "/catalogms/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
       "UpstreamSchema": "http"
     },
@@ -27,7 +27,7 @@
           "Port": 9002
         }
       ],
-      "UpstreamPathTemplate": "/photostock/{everything}",
+      "UpstreamPathTemplate": "/photostockms/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
       "UpstreamSchema": "http"
     },
@@ -41,7 +41,7 @@
           "Port": 9003
         }
       ],
-      "UpstreamPathTemplate": "/basket/{everything}",
+      "UpstreamPathTemplate": "/basketms/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
       "UpstreamSchema": "http"
     },
@@ -55,7 +55,7 @@
           "Port": 9004
         }
       ],
-      "UpstreamPathTemplate": "/discount/{everything}",
+      "UpstreamPathTemplate": "/discountms/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
       "UpstreamSchema": "http"
     },
@@ -69,7 +69,7 @@
           "Port": 9005
         }
       ],
-      "UpstreamPathTemplate": "/order/{everything}",
+      "UpstreamPathTemplate": "/orderms/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
       "UpstreamSchema": "http"
     },
@@ -83,7 +83,7 @@
           "Port": 9006
         }
       ],
-      "UpstreamPathTemplate": "/payment/{everything}",
+      "UpstreamPathTemplate": "/paymentms/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
       "UpstreamSchema": "http"
     }
