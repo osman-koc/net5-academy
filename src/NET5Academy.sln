@@ -48,6 +48,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Payment", "Payment", "{E9A3
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NET5Academy.Services.Payment", "Microservices\Payment\NET5Academy.Services.Payment\NET5Academy.Services.Payment.csproj", "{5F03849E-AC05-4DEE-BB83-0F9B97457EE7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateways", "Gateways", "{08149D82-2B67-4E46-BE53-A680D970CA20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET5Academy.ApiGateway", "Gateways\NET5Academy.ApiGateway\NET5Academy.ApiGateway.csproj", "{5DF33224-28E6-472A-8D11-E723E34C64C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -98,6 +102,10 @@ Global
 		{5F03849E-AC05-4DEE-BB83-0F9B97457EE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F03849E-AC05-4DEE-BB83-0F9B97457EE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F03849E-AC05-4DEE-BB83-0F9B97457EE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DF33224-28E6-472A-8D11-E723E34C64C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DF33224-28E6-472A-8D11-E723E34C64C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DF33224-28E6-472A-8D11-E723E34C64C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DF33224-28E6-472A-8D11-E723E34C64C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -120,6 +128,7 @@ Global
 		{8A48AF90-27FE-4AC9-84EB-DFF574711238} = {E3249298-016D-4899-A749-53C8FB0D1227}
 		{E9A3891A-EB1F-4CA5-A66D-740BD80FAE31} = {AB365147-168B-4366-8461-0221BCCF284B}
 		{5F03849E-AC05-4DEE-BB83-0F9B97457EE7} = {E9A3891A-EB1F-4CA5-A66D-740BD80FAE31}
+		{5DF33224-28E6-472A-8D11-E723E34C64C3} = {08149D82-2B67-4E46-BE53-A680D970CA20}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {900AC0CE-2C9B-4A2C-A1B7-E75070446182}

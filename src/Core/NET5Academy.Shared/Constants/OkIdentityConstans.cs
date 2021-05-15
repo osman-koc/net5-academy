@@ -15,6 +15,8 @@ namespace NET5Academy.Shared.Constants
             public const string DiscountAPI = "DiscountApi";
             public const string OrderAPI = "OrderApi";
             public const string PaymentAPI = "PaymentApi";
+
+            public const string ApiGateway = "ApiGateway";
         }
         public static class ScopeDisplay
         {
@@ -26,6 +28,8 @@ namespace NET5Academy.Shared.Constants
             public const string DiscountAPI = "Discount API full permission";
             public const string OrderAPI = "Order API full permission";
             public const string PaymentAPI = "Payment API full permission";
+
+            public const string ApiGateway = "API Gateway full permission";
         }
 
         public static class ResourceName
@@ -36,6 +40,7 @@ namespace NET5Academy.Shared.Constants
             public const string DiscountAPI = "resource_discount";
             public const string OrderAPI = "resource_order";
             public const string PaymentAPI = "resource_payment";
+            public const string ApiGateway = "resource_apigateway";
         }
 
         public static class Clients
