@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NET5Academy.Services.Basket.Application.Controllers
 {
-    [Route("api/v1/[controller]")]
+    [Route("api/v1")]
     [ApiController]
     public class BasketController : OkBaseController
     {
