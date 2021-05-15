@@ -33,6 +33,7 @@ namespace NET5Academy.IdentityServer
                 new ApiScope(OkIdentityConstans.ScopeName.DiscountAPI, OkIdentityConstans.ScopeDisplay.DiscountAPI),
                 new ApiScope(OkIdentityConstans.ScopeName.OrderAPI, OkIdentityConstans.ScopeDisplay.OrderAPI),
                 new ApiScope(OkIdentityConstans.ScopeName.PaymentAPI, OkIdentityConstans.ScopeDisplay.PaymentAPI),
+                new ApiScope(OkIdentityConstans.ScopeName.ApiGateway, OkIdentityConstans.ScopeDisplay.ApiGateway),
             };
 
         public static IEnumerable<ApiResource> ApiResources =>
@@ -45,6 +46,7 @@ namespace NET5Academy.IdentityServer
                 new ApiResource(OkIdentityConstans.ResourceName.DiscountAPI) { Scopes = { OkIdentityConstans.ScopeName.DiscountAPI } },
                 new ApiResource(OkIdentityConstans.ResourceName.OrderAPI) { Scopes = { OkIdentityConstans.ScopeName.OrderAPI } },
                 new ApiResource(OkIdentityConstans.ResourceName.PaymentAPI) { Scopes = { OkIdentityConstans.ScopeName.PaymentAPI } },
+                new ApiResource(OkIdentityConstans.ResourceName.ApiGateway) { Scopes = { OkIdentityConstans.ScopeName.ApiGateway } },
             };
 
         public static IEnumerable<Client> Clients =>
@@ -59,7 +61,8 @@ namespace NET5Academy.IdentityServer
                     AllowedScopes = {
                         IdentityServerConstants.LocalApi.ScopeName,
                         OkIdentityConstans.ScopeName.CatalogAPI,
-                        OkIdentityConstans.ScopeName.PhotoStockAPI
+                        OkIdentityConstans.ScopeName.PhotoStockAPI,
+                        OkIdentityConstans.ScopeName.ApiGateway,
                     }
                 },
                 new Client
@@ -82,6 +85,7 @@ namespace NET5Academy.IdentityServer
                         OkIdentityConstans.ScopeName.DiscountAPI,
                         OkIdentityConstans.ScopeName.OrderAPI,
                         OkIdentityConstans.ScopeName.PaymentAPI,
+                        OkIdentityConstans.ScopeName.ApiGateway,
                     },
                     AccessTokenLifetime = 3*3600, //3 hour
                     RefreshTokenExpiration = TokenExpiration.Absolute,
