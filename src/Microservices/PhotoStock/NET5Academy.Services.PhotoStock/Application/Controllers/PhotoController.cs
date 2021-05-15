@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NET5Academy.Services.PhotoStock.Application.Controllers
 {
-    [Route("api/v1")]
+    [Route("api/v1/[controllers]")]
     [ApiController]
     public class PhotoController : OkBaseController
     {
