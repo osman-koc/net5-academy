@@ -9,12 +9,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Application\Controllers\" />
-    <Folder Include="Application\Dtos\" />
-    <Folder Include="Application\Services\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\..\Core\NET5Academy.Shared\NET5Academy.Shared.csproj" />
   </ItemGroup>
 
