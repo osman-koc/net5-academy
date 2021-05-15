@@ -3,7 +3,14 @@
 - Swagger (Swashbuckle.AspNetCore)
 - Identity JWT token (resource owner credentials)
 - Microsoft.AspNetCore.Authentication.JwtBearer
-- EF Core (Microsoft.EntityFrameworkCore.Design)
+- AutoMapper
+- MediatR (MediatR.Extensions.Microsoft.DependencyInjection)
+- EF Core 
+Microsoft.EntityFrameworkCore
+Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.EntityFrameworkCore.Tools
+Microsoft.EntityFrameworkCore.Design
+
 
 ## Layers
 - API (NET5Academy.Services.Order)
