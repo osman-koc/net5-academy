@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NET5Academy.Services.Catalo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{305BF5E9-7A06-46E1-AE7A-9EB5BC562C37}"
 	ProjectSection(SolutionItems) = preProject
-		..\Ports.txt = ..\Ports.txt
+		Ports.txt = Ports.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{FA60ED1D-3E69-4634-9C0C-3215E78D2D66}"
@@ -50,7 +50,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NET5Academy.Services.Paymen
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateways", "Gateways", "{08149D82-2B67-4E46-BE53-A680D970CA20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET5Academy.ApiGateway", "Gateways\NET5Academy.ApiGateway\NET5Academy.ApiGateway.csproj", "{5DF33224-28E6-472A-8D11-E723E34C64C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NET5Academy.ApiGateway", "Gateways\NET5Academy.ApiGateway\NET5Academy.ApiGateway.csproj", "{5DF33224-28E6-472A-8D11-E723E34C64C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
