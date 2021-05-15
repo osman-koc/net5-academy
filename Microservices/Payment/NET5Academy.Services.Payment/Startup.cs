@@ -1,10 +1,15 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using NET5Academy.Shared.Config;
+using NET5Academy.Shared.Constants;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace NET5Academy.Services.Payment
 {
@@ -26,11 +31,26 @@ namespace NET5Academy.Services.Payment
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            var requireAuthorizePolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove(OkIdentityConstans.UserIdKey);
+
+            services.AddControllers(options =>
+            {
+                options.Filters.Add(new AuthorizeFilter(requireAuthorizePolicy));
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc(_swaggerSettings.Version, new OpenApiInfo { Title = _swaggerSettings.ApiName, Version = _swaggerSettings.Version });
             });
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.Authority = _configuration["IdentityServerUri"];
+                    options.Audience = OkIdentityConstans.ResourceName.PaymentAPI;
+                    options.RequireHttpsMetadata = false;
+                });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -45,6 +65,7 @@ namespace NET5Academy.Services.Payment
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {

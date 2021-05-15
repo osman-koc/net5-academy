@@ -14,6 +14,7 @@ namespace NET5Academy.Shared.Constants
             public const string BasketAPI = "BasketApi";
             public const string DiscountAPI = "DiscountApi";
             public const string OrderAPI = "OrderApi";
+            public const string PaymentAPI = "PaymentApi";
         }
         public static class ScopeDisplay
         {
@@ -24,6 +25,7 @@ namespace NET5Academy.Shared.Constants
             public const string BasketAPI = "Basket API full permission";
             public const string DiscountAPI = "Discount API full permission";
             public const string OrderAPI = "Order API full permission";
+            public const string PaymentAPI = "Payment API full permission";
         }
 
         public static class ResourceName
@@ -33,6 +35,7 @@ namespace NET5Academy.Shared.Constants
             public const string BasketAPI = "resource_basket";
             public const string DiscountAPI = "resource_discount";
             public const string OrderAPI = "resource_order";
+            public const string PaymentAPI = "resource_payment";
         }
 
         public static class Clients
