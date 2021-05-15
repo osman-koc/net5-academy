@@ -14,4 +14,8 @@
     <Folder Include="Application\Services\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\NET5Academy.Shared\NET5Academy.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
