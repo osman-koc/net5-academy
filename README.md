@@ -40,8 +40,8 @@ It is a course system created to apply current technologies. Instructors and tra
 - Payment microservice <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="20" />
 - API Gateway (Ocelot) <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="20" />
 - ASP.NET Core MVC Web Application <img src="https://image.flaticon.com/icons/png/128/1716/1716746.png" width="20" />
+  - Bootstrap 5.0 ✓
   - Cookie based authentication / authorization
-  - Bootstrap 5.0 Beta
   - IdentityService & UserService
   - CatalogService & CourseService
   - ClientCredentialTokenService
