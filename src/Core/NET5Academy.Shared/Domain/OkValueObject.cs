@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace NET5Academy.Shared.Domain
 {
-    public abstract class ValueObject
+    public abstract class OkValueObject
     {
-        protected static bool EqualOperator(ValueObject left, ValueObject right)
+        protected static bool EqualOperator(OkValueObject left, OkValueObject right)
         {
             if (ReferenceEquals(left, null) ^ ReferenceEquals(right, null))
                 return false;
@@ -14,7 +14,7 @@ namespace NET5Academy.Shared.Domain
             return ReferenceEquals(left, null) || left.Equals(right);
         }
 
-        protected static bool NotEqualOperator(ValueObject left, ValueObject right)
+        protected static bool NotEqualOperator(OkValueObject left, OkValueObject right)
         {
             return !(EqualOperator(left, right));
         }
@@ -26,7 +26,7 @@ namespace NET5Academy.Shared.Domain
             if (obj == null || obj.GetType() != GetType())
                 return false;
 
-            var other = (ValueObject)obj;
+            var other = (OkValueObject)obj;
             return this.GetEqualityComponents().SequenceEqual(other.GetEqualityComponents());
         }
 
@@ -37,9 +37,9 @@ namespace NET5Academy.Shared.Domain
              .Aggregate((x, y) => x ^ y);
         }
 
-        public ValueObject GetCopy()
+        public OkValueObject GetCopy()
         {
-            return this.MemberwiseClone() as ValueObject;
+            return this.MemberwiseClone() as OkValueObject;
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace NET5Academy.Services.Order.Domain.OrderAggregate
 {
-    public class Address : ValueObject
+    public class Address : OkValueObject
     {
         public string City { get; private set; }
         public string County { get; private set; }
