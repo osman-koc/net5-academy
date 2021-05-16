@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NET5Academy.Shared.Models;
 
-namespace NET5Academy.Shared.ControllerBases
+namespace NET5Academy.Shared.Controllers
 {
     public class OkBaseController : ControllerBase
     {

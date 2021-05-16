@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using NET5Academy.IdentityServer.Data.Entities;
 using NET5Academy.IdentityServer.Application.Dtos;
-using NET5Academy.Shared.ControllerBases;
+using NET5Academy.Shared.Controllers;
 using NET5Academy.Shared.Models;
 using System.Linq;
 using System.Net;

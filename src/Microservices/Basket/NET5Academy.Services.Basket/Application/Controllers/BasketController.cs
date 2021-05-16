@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NET5Academy.Services.Basket.Application.Dtos;
 using NET5Academy.Services.Basket.Application.Services;
-using NET5Academy.Shared.ControllerBases;
+using NET5Academy.Shared.Controllers;
 using NET5Academy.Shared.Services;
 using System.Threading.Tasks;
 

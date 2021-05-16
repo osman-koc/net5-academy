@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NET5Academy.Services.PhotoStock.Application.Services;
-using NET5Academy.Shared.ControllerBases;
+using NET5Academy.Shared.Controllers;
 using System.Threading;
 using System.Threading.Tasks;
 
