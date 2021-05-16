@@ -52,6 +52,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateways", "Gateways", "{08
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NET5Academy.ApiGateway", "Gateways\NET5Academy.ApiGateway\NET5Academy.ApiGateway.csproj", "{5DF33224-28E6-472A-8D11-E723E34C64C3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{5099F2CA-07AA-4BE0-BFCF-CC55EC50EB6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET5Academy.Web", "Presentation\NET5Academy.Web\NET5Academy.Web.csproj", "{2F77E269-1DFB-49ED-BC19-EEB2A82B9519}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -106,6 +110,10 @@ Global
 		{5DF33224-28E6-472A-8D11-E723E34C64C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DF33224-28E6-472A-8D11-E723E34C64C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DF33224-28E6-472A-8D11-E723E34C64C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F77E269-1DFB-49ED-BC19-EEB2A82B9519}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F77E269-1DFB-49ED-BC19-EEB2A82B9519}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F77E269-1DFB-49ED-BC19-EEB2A82B9519}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F77E269-1DFB-49ED-BC19-EEB2A82B9519}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -129,6 +137,7 @@ Global
 		{E9A3891A-EB1F-4CA5-A66D-740BD80FAE31} = {AB365147-168B-4366-8461-0221BCCF284B}
 		{5F03849E-AC05-4DEE-BB83-0F9B97457EE7} = {E9A3891A-EB1F-4CA5-A66D-740BD80FAE31}
 		{5DF33224-28E6-472A-8D11-E723E34C64C3} = {08149D82-2B67-4E46-BE53-A680D970CA20}
+		{2F77E269-1DFB-49ED-BC19-EEB2A82B9519} = {5099F2CA-07AA-4BE0-BFCF-CC55EC50EB6C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {900AC0CE-2C9B-4A2C-A1B7-E75070446182}

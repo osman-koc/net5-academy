@@ -20,7 +20,7 @@ namespace NET5Academy.Services.Basket.Application.Controllers
         }
 
         /// <summary>
-        /// Get basket by user id from token
+        /// Get basket by user id with token
         /// </summary>
         /// <returns>BasketDto</returns>
         [HttpGet]
@@ -35,7 +35,7 @@ namespace NET5Academy.Services.Basket.Application.Controllers
         /// Create or Update basket
         /// </summary>
         /// <param name="dto"></param>
-        /// <returns>bool</returns>
+        /// <returns>Success (bool)</returns>
         [HttpPost]
         public async Task<IActionResult> CreateOrUpdate([FromBody] BasketDto dto)
         {
@@ -45,7 +45,7 @@ namespace NET5Academy.Services.Basket.Application.Controllers
         }
 
         /// <summary>
-        /// Delete basket by user id from token
+        /// Delete basket by user id with token
         /// </summary>
         /// <returns>NoContent</returns>
         [HttpDelete]

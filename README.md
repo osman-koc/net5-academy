@@ -20,12 +20,14 @@ It is a course system created to apply current technologies. Instructors and tra
 - FluentValidation
 - Docker & Kubernetes & Helm
 
-<img src="https://img.shields.io/badge/ASP.NET%20Core-5.0-blueviolet" /> <img src="https://img.shields.io/badge/ASP.NET%20MVC%20Core-5.2-blueviolet" /> <img src="https://img.shields.io/badge/IdentityServer4%20-4.1.1-orange" /> <img src="https://img.shields.io/badge/MSSQL%20Server%20(linux)-2017-blue" /> <img src="https://img.shields.io/badge/MongoDB-latest-green" /> <img src="https://img.shields.io/badge/Redis-latest-green" /> <img src="https://img.shields.io/badge/Bootstrap-5.0-blueviolet" />
+<img src="https://img.shields.io/badge/ASP.NET%20Core-5.0-blueviolet" /> <img src="https://img.shields.io/badge/ASP.NET%20MVC%20Core-5.2-blueviolet" /> <img src="https://img.shields.io/badge/IdentityServer4%20-4.1.1-orange" /> <img src="https://img.shields.io/badge/MSSQL%20Server%20(linux)-2017-blue" /> <img src="https://img.shields.io/badge/MongoDB-latest-green" /> <img src="https://img.shields.io/badge/Redis-latest-green" /> <img src="https://img.shields.io/badge/Bootstrap-5.0.1-blueviolet" />
 
 ## Architecture
 ![GeneralDiagram](img/diagram_general.jpg)
 
 ![IdentityDiagram](img/diagram_identity.jpg)
+
+![Cookie-based Authentication](img/cookie_based_authentication.jpg)
 
 ## Features
 - Shared / Library <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="20" />
@@ -38,8 +40,8 @@ It is a course system created to apply current technologies. Instructors and tra
 - Payment microservice <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="20" />
 - API Gateway (Ocelot) <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="20" />
 - ASP.NET Core MVC Web Application <img src="https://image.flaticon.com/icons/png/128/1716/1716746.png" width="20" />
+  - Bootstrap 5.0 ✓
   - Cookie based authentication / authorization
-  - Bootstrap 5.0 Beta
   - IdentityService & UserService
   - CatalogService & CourseService
   - ClientCredentialTokenService

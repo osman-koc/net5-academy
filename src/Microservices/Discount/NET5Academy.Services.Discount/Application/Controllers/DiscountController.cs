@@ -20,6 +20,10 @@ namespace NET5Academy.Services.Discount.Application.Controllers
             _sharedIdentityService = sharedIdentityService;
         }
 
+        /// <summary>
+        /// Get all discounts
+        /// </summary>
+        /// <returns>IEnumerable DiscountDto</returns>
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -27,6 +31,11 @@ namespace NET5Academy.Services.Discount.Application.Controllers
             return OkActionResult(result);
         }
 
+        /// <summary>
+        /// Get discount by id
+        /// </summary>
+        /// <param name="id">Discount Id</param>
+        /// <returns>DiscountDto</returns>
         [HttpGet]
         [Route("{id}")]
         public async Task<IActionResult> GetById([Required] int id)
@@ -35,6 +44,11 @@ namespace NET5Academy.Services.Discount.Application.Controllers
             return OkActionResult(result);
         }
 
+        /// <summary>
+        /// Get discount by code
+        /// </summary>
+        /// <param name="code">Discount Code</param>
+        /// <returns>DiscountDto</returns>
         [HttpGet]
         [Route("GetByCode/{code}")]
         public async Task<IActionResult> GetByCode([Required] string code)
@@ -44,6 +58,11 @@ namespace NET5Academy.Services.Discount.Application.Controllers
             return OkActionResult(result);
         }
 
+        /// <summary>
+        /// Create discount
+        /// </summary>
+        /// <param name="dto">DiscountCreateDto</param>
+        /// <returns>DiscountDto</returns>
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] DiscountCreateDto dto)
         {
@@ -52,6 +71,11 @@ namespace NET5Academy.Services.Discount.Application.Controllers
             return OkActionResult(result);
         }
 
+        /// <summary>
+        /// Update discount
+        /// </summary>
+        /// <param name="dto">DiscountUpdateDto</param>
+        /// <returns>DiscountDto</returns>
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] DiscountUpdateDto dto)
         {
@@ -60,6 +84,11 @@ namespace NET5Academy.Services.Discount.Application.Controllers
             return OkActionResult(result);
         }
 
+        /// <summary>
+        /// Delete discount by id
+        /// </summary>
+        /// <param name="id">Discount Id</param>
+        /// <returns>NoContent</returns>
         [HttpDelete]
         [Route("{id}")]
         public async Task<IActionResult> Delete([Required] int id)
