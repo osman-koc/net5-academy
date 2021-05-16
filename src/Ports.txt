@@ -1,6 +1,7 @@
 Other
 -IdentityServer: 8001
 -ApiGateway: 8002
+-WebUI: 8003
 
 Microservices
 -Catalog: 9001
