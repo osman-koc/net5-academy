@@ -12,7 +12,7 @@ namespace NET5Academy.Services.Payment.Application.Controllers
         /// <summary>
         /// Receive payment (it's fake, returns true)
         /// </summary>
-        /// <returns>true</returns>
+        /// <returns>Success (bool)</returns>
         [HttpPost]
         public async Task<IActionResult> Create()
         {

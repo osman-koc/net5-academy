@@ -17,6 +17,12 @@ namespace NET5Academy.Services.PhotoStock.Application.Controllers
             _photoService = photoService;
         }
 
+        /// <summary>
+        /// Save photo file
+        /// </summary>
+        /// <param name="photoFile">IFormFile</param>
+        /// <param name="cancellationToken">CancellationToken</param>
+        /// <returns>PhotoDto</returns>
         [HttpPost]
         public async Task<IActionResult> Create(IFormFile photoFile, CancellationToken cancellationToken)
         {
@@ -24,6 +30,11 @@ namespace NET5Academy.Services.PhotoStock.Application.Controllers
             return OkActionResult(response);
         }
 
+        /// <summary>
+        /// Delete photo file by name
+        /// </summary>
+        /// <param name="name">Photo Name</param>
+        /// <returns>NoContent</returns>
         [HttpDelete]
         public async Task<IActionResult> Delete(string name)
         {

@@ -41,7 +41,7 @@ namespace NET5Academy.Services.PhotoStock.Application.Services
             }
 
             File.Delete(existFile);
-            return OkResponse<object>.Success(HttpStatusCode.OK);
+            return OkResponse<object>.Success(HttpStatusCode.NoContent);
         }
     }
 }

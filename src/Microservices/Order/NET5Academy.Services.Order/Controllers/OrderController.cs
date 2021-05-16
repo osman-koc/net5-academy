@@ -20,14 +20,23 @@ namespace NET5Academy.Services.Order.Controllers
             _sharedIdentityService = sharedIdentityService;
         }
 
+        /// <summary>
+        /// Get all orders
+        /// </summary>
+        /// <returns>List OrderDto</returns>
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> GetAll()
         {
             var userId = _sharedIdentityService.GetUserId();
             var response = await _mediator.Send(new GetOrdersByUserIdQuery { UserId = userId });
             return OkActionResult(response);
         }
 
+        /// <summary>
+        /// Create order
+        /// </summary>
+        /// <param name="command">CreateOrderCommand</param>
+        /// <returns>OrderResponseDto/returns>
         [HttpPost]
         public async Task<IActionResult> Create(CreateOrderCommand command)
         {
