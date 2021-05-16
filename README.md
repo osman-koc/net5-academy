@@ -27,6 +27,8 @@ It is a course system created to apply current technologies. Instructors and tra
 
 ![IdentityDiagram](img/diagram_identity.jpg)
 
+![Cookie-based Authentication](img/cookie_based_authentication.jpg)
+
 ## Features
 - Shared / Library <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="20" />
 - IdentityServer (MSSQL, EF Core) <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="20" />
