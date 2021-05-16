@@ -3,10 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using NET5Academy.Web.Models.Config;
 
 namespace NET5Academy.Web
 {
@@ -20,6 +17,8 @@ namespace NET5Academy.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<OkServiceSettings>(_configuration.GetSection("OkServiceSettings"));
+
             services.AddControllersWithViews();
         }
 
