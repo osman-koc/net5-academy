@@ -17,9 +17,10 @@ namespace NET5Academy.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<OkServiceSettings>(_configuration.GetSection("OkServiceSettings"));
-
             services.AddControllersWithViews();
+
+            services.Configure<OkServiceSettings>(_configuration.GetSection("OkServiceSettings"));
+            services.AddScoped<OkServiceSettings>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

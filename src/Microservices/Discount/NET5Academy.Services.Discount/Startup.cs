@@ -35,7 +35,7 @@ namespace NET5Academy.Services.Discount
         public void ConfigureServices(IServiceCollection services)
         {
             var requireAuthorizePolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
-            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove(OkIdentityConstans.UserIdKey);
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove(OkIdentityConstants.UserIdKey);
 
             services.AddControllers(options =>
             {
@@ -51,7 +51,7 @@ namespace NET5Academy.Services.Discount
                 .AddJwtBearer(options =>
                 {
                     options.Authority = _configuration["IdentityServerUri"];
-                    options.Audience = OkIdentityConstans.ResourceName.DiscountAPI;
+                    options.Audience = OkIdentityConstants.ResourceName.DiscountAPI;
                     options.RequireHttpsMetadata = false;
                 });
 

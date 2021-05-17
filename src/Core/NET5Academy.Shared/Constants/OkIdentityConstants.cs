@@ -2,7 +2,7 @@
 
 namespace NET5Academy.Shared.Constants
 {
-    public class OkIdentityConstans
+    public class OkIdentityConstants
     {
         public const string UserIdKey = "sub";
 

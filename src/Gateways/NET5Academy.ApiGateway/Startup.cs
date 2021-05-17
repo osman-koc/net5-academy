@@ -22,7 +22,7 @@ namespace NET5Academy.ApiGateway
             services.AddAuthentication().AddJwtBearer("GatewayAuthenticationSchema", options =>
             {
                 options.Authority = _configuration["IdentityServerUri"];
-                options.Audience = OkIdentityConstans.ResourceName.ApiGateway;
+                options.Audience = OkIdentityConstants.ResourceName.ApiGateway;
                 options.RequireHttpsMetadata = false;
             });
 

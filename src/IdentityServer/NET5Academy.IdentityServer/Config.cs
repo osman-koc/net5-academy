@@ -16,37 +16,37 @@ namespace NET5Academy.IdentityServer
                        new IdentityResources.Profile(),
                        new IdentityResource()
                        {
-                           Name = OkIdentityConstans.ScopeName.Roles,
+                           Name = OkIdentityConstants.ScopeName.Roles,
                            DisplayName = "Roles",
                            Description = "Identity user roles",
-                           UserClaims = new []{ OkIdentityConstans.ClaimName.Role }
+                           UserClaims = new []{ OkIdentityConstants.ClaimName.Role }
                        },
                    };
 
         public static IEnumerable<ApiScope> ApiScopes =>
             new ApiScope[]
             {
-                new ApiScope(IdentityServerConstants.LocalApi.ScopeName, OkIdentityConstans.ScopeDisplay.IdentityAPI),
-                new ApiScope(OkIdentityConstans.ScopeName.CatalogAPI, OkIdentityConstans.ScopeDisplay.CatalogAPI),
-                new ApiScope(OkIdentityConstans.ScopeName.PhotoStockAPI, OkIdentityConstans.ScopeDisplay.PhotoStockAPI),
-                new ApiScope(OkIdentityConstans.ScopeName.BasketAPI, OkIdentityConstans.ScopeDisplay.BasketAPI),
-                new ApiScope(OkIdentityConstans.ScopeName.DiscountAPI, OkIdentityConstans.ScopeDisplay.DiscountAPI),
-                new ApiScope(OkIdentityConstans.ScopeName.OrderAPI, OkIdentityConstans.ScopeDisplay.OrderAPI),
-                new ApiScope(OkIdentityConstans.ScopeName.PaymentAPI, OkIdentityConstans.ScopeDisplay.PaymentAPI),
-                new ApiScope(OkIdentityConstans.ScopeName.ApiGateway, OkIdentityConstans.ScopeDisplay.ApiGateway),
+                new ApiScope(IdentityServerConstants.LocalApi.ScopeName, OkIdentityConstants.ScopeDisplay.IdentityAPI),
+                new ApiScope(OkIdentityConstants.ScopeName.CatalogAPI, OkIdentityConstants.ScopeDisplay.CatalogAPI),
+                new ApiScope(OkIdentityConstants.ScopeName.PhotoStockAPI, OkIdentityConstants.ScopeDisplay.PhotoStockAPI),
+                new ApiScope(OkIdentityConstants.ScopeName.BasketAPI, OkIdentityConstants.ScopeDisplay.BasketAPI),
+                new ApiScope(OkIdentityConstants.ScopeName.DiscountAPI, OkIdentityConstants.ScopeDisplay.DiscountAPI),
+                new ApiScope(OkIdentityConstants.ScopeName.OrderAPI, OkIdentityConstants.ScopeDisplay.OrderAPI),
+                new ApiScope(OkIdentityConstants.ScopeName.PaymentAPI, OkIdentityConstants.ScopeDisplay.PaymentAPI),
+                new ApiScope(OkIdentityConstants.ScopeName.ApiGateway, OkIdentityConstants.ScopeDisplay.ApiGateway),
             };
 
         public static IEnumerable<ApiResource> ApiResources =>
             new ApiResource[]
             {
                 new ApiResource(IdentityServerConstants.LocalApi.ScopeName),
-                new ApiResource(OkIdentityConstans.ResourceName.CatalogAPI) { Scopes = { OkIdentityConstans.ScopeName.CatalogAPI } },
-                new ApiResource(OkIdentityConstans.ResourceName.PhotoStockAPI) { Scopes = { OkIdentityConstans.ScopeName.PhotoStockAPI } },
-                new ApiResource(OkIdentityConstans.ResourceName.BasketAPI) { Scopes = { OkIdentityConstans.ScopeName.BasketAPI } },
-                new ApiResource(OkIdentityConstans.ResourceName.DiscountAPI) { Scopes = { OkIdentityConstans.ScopeName.DiscountAPI } },
-                new ApiResource(OkIdentityConstans.ResourceName.OrderAPI) { Scopes = { OkIdentityConstans.ScopeName.OrderAPI } },
-                new ApiResource(OkIdentityConstans.ResourceName.PaymentAPI) { Scopes = { OkIdentityConstans.ScopeName.PaymentAPI } },
-                new ApiResource(OkIdentityConstans.ResourceName.ApiGateway) { Scopes = { OkIdentityConstans.ScopeName.ApiGateway } },
+                new ApiResource(OkIdentityConstants.ResourceName.CatalogAPI) { Scopes = { OkIdentityConstants.ScopeName.CatalogAPI } },
+                new ApiResource(OkIdentityConstants.ResourceName.PhotoStockAPI) { Scopes = { OkIdentityConstants.ScopeName.PhotoStockAPI } },
+                new ApiResource(OkIdentityConstants.ResourceName.BasketAPI) { Scopes = { OkIdentityConstants.ScopeName.BasketAPI } },
+                new ApiResource(OkIdentityConstants.ResourceName.DiscountAPI) { Scopes = { OkIdentityConstants.ScopeName.DiscountAPI } },
+                new ApiResource(OkIdentityConstants.ResourceName.OrderAPI) { Scopes = { OkIdentityConstants.ScopeName.OrderAPI } },
+                new ApiResource(OkIdentityConstants.ResourceName.PaymentAPI) { Scopes = { OkIdentityConstants.ScopeName.PaymentAPI } },
+                new ApiResource(OkIdentityConstants.ResourceName.ApiGateway) { Scopes = { OkIdentityConstants.ScopeName.ApiGateway } },
             };
 
         public static IEnumerable<Client> Clients =>
@@ -54,22 +54,22 @@ namespace NET5Academy.IdentityServer
             {
                 new Client
                 {
-                    ClientId = OkIdentityConstans.Clients.WebMvcClient.Id,
-                    ClientName = OkIdentityConstans.Clients.WebMvcClient.Name,
-                    ClientSecrets = { new Secret(OkIdentityConstans.Clients.WebMvcClient.Secret.Sha256()) },
+                    ClientId = OkIdentityConstants.Clients.WebMvcClient.Id,
+                    ClientName = OkIdentityConstants.Clients.WebMvcClient.Name,
+                    ClientSecrets = { new Secret(OkIdentityConstants.Clients.WebMvcClient.Secret.Sha256()) },
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     AllowedScopes = {
                         IdentityServerConstants.LocalApi.ScopeName,
-                        OkIdentityConstans.ScopeName.CatalogAPI,
-                        OkIdentityConstans.ScopeName.PhotoStockAPI,
-                        OkIdentityConstans.ScopeName.ApiGateway,
+                        OkIdentityConstants.ScopeName.CatalogAPI,
+                        OkIdentityConstants.ScopeName.PhotoStockAPI,
+                        OkIdentityConstants.ScopeName.ApiGateway,
                     }
                 },
                 new Client
                 {
-                    ClientId = OkIdentityConstans.Clients.WebMvcClientForUser.Id,
-                    ClientName = OkIdentityConstans.Clients.WebMvcClientForUser.Name,
-                    ClientSecrets = { new Secret(OkIdentityConstans.Clients.WebMvcClient.Secret.Sha256()) },
+                    ClientId = OkIdentityConstants.Clients.WebMvcClientForUser.Id,
+                    ClientName = OkIdentityConstants.Clients.WebMvcClientForUser.Name,
+                    ClientSecrets = { new Secret(OkIdentityConstants.Clients.WebMvcClient.Secret.Sha256()) },
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                     AllowOfflineAccess = true,
                     AllowedScopes =
@@ -80,12 +80,12 @@ namespace NET5Academy.IdentityServer
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.OfflineAccess, //for refresh token
 
-                        OkIdentityConstans.ScopeName.Roles,
-                        OkIdentityConstans.ScopeName.BasketAPI,
-                        OkIdentityConstans.ScopeName.DiscountAPI,
-                        OkIdentityConstans.ScopeName.OrderAPI,
-                        OkIdentityConstans.ScopeName.PaymentAPI,
-                        OkIdentityConstans.ScopeName.ApiGateway,
+                        OkIdentityConstants.ScopeName.Roles,
+                        OkIdentityConstants.ScopeName.BasketAPI,
+                        OkIdentityConstants.ScopeName.DiscountAPI,
+                        OkIdentityConstants.ScopeName.OrderAPI,
+                        OkIdentityConstants.ScopeName.PaymentAPI,
+                        OkIdentityConstants.ScopeName.ApiGateway,
                     },
                     AccessTokenLifetime = 3*3600, //3 hour
                     RefreshTokenExpiration = TokenExpiration.Absolute,

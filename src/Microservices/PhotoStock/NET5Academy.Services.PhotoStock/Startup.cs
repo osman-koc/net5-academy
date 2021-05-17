@@ -44,7 +44,7 @@ namespace NET5Academy.Services.PhotoStock
                 .AddJwtBearer(options =>
                 {
                     options.Authority = _configuration["IdentityServerUri"];
-                    options.Audience = OkIdentityConstans.ResourceName.PhotoStockAPI;
+                    options.Audience = OkIdentityConstants.ResourceName.PhotoStockAPI;
                     options.RequireHttpsMetadata = false;
                 });
 
