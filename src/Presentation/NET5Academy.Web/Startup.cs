@@ -18,6 +18,7 @@ namespace NET5Academy.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddRazorPages();
 
             services.Configure<OkServiceSettings>(_configuration.GetSection("OkServiceSettings"));
             services.AddScoped<OkServiceSettings>();
@@ -33,8 +34,8 @@ namespace NET5Academy.Web
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-            app.UseStaticFiles();
 
+            app.UseStaticFiles();
             app.UseRouting();
 
             app.UseAuthorization();
@@ -44,6 +45,8 @@ namespace NET5Academy.Web
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapRazorPages();
             });
         }
     }

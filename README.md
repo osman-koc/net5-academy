@@ -30,19 +30,20 @@ It is a course system created to apply current technologies. Instructors and tra
 ![Cookie-based Authentication](img/cookie_based_authentication.jpg)
 
 ## Features
-- Shared / Library <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="10" />
-- IdentityServer (MSSQL, EF Core) <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="10" />
-- Catalog microservice (MongoDB) <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="10" />
-- PhotoStock microservice <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="10" />
-- Basket microservice (Redis)  <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="10" />
-- Discount microservice (PostgreSQL, Dapper) <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="10" />
-- Order microservice (MSSQL, EF Core, Domain Driven Design, CQRS) <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="10" />
-- Payment microservice <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="10" />
-- API Gateway (Ocelot) <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="10" />
-- ASP.NET Core MVC Web Application <img src="https://image.flaticon.com/icons/png/128/1716/1716746.png" width="10" />
-  - Bootstrap 5.0 ✓
-  - Cookie based authentication / authorization ✓
+- Shared / Library <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="15" />
+- IdentityServer (MSSQL, EF Core) <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="15" />
+- Catalog microservice (MongoDB) <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="15" />
+- PhotoStock microservice <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="15" />
+- Basket microservice (Redis)  <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="15" />
+- Discount microservice (PostgreSQL, Dapper) <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="15" />
+- Order microservice (MSSQL, EF Core, Domain Driven Design, CQRS) <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="15" />
+- Payment microservice <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="15" />
+- API Gateway (Ocelot) <img src="https://findicons.com/files/icons/1671/simplicio/128/notification_done.png" width="15" />
+- ASP.NET Core MVC Web Application <img src="https://image.flaticon.com/icons/png/128/1716/1716746.png" width="15" />
+  - Bootstrap 5.0
+  - Cookie based authentication / authorization
   - IdentityService 
+  - RazorPages (Login, Logout, Error)
   - UserService
   - CatalogService
   - CourseService
