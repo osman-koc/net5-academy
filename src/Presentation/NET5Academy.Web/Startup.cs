@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NET5Academy.Web.Models.Config;
+using NET5Academy.Web.Services;
 
 namespace NET5Academy.Web
 {
@@ -21,7 +22,10 @@ namespace NET5Academy.Web
             services.AddRazorPages();
 
             services.Configure<OkServiceSettings>(_configuration.GetSection("OkServiceSettings"));
-            services.AddScoped<OkServiceSettings>();
+
+            services.AddHttpContextAccessor();
+            services.AddHttpClient<IIdentityService, IdentityService>();
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

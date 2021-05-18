@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using NET5Academy.Shared.Constants;
 using NET5Academy.Shared.Models;
@@ -22,12 +23,12 @@ namespace NET5Academy.Web.Services
         private const string AUTH_SCHEMA = CookieAuthenticationDefaults.AuthenticationScheme;
 
         private readonly HttpClient _httpClient;
-        private readonly ApiGatewaySettings _gatewaySettings;
+        private readonly OkServiceSettings _okServiceSettings;
         private readonly IHttpContextAccessor _contextAccessor;
-        public IdentityService(HttpClient httpClient, ApiGatewaySettings gatewaySettings, IHttpContextAccessor contextAccessor)
+        public IdentityService(HttpClient httpClient, IOptions<OkServiceSettings> ossOptions, IHttpContextAccessor contextAccessor)
         {
             _httpClient = httpClient;
-            _gatewaySettings = gatewaySettings;
+            _okServiceSettings = ossOptions.Value;
             _contextAccessor = contextAccessor;
         }
 
@@ -41,19 +42,19 @@ namespace NET5Academy.Web.Services
             DiscoveryDocumentResponse discovery = await GetDiscoveryDocumentAsync();
             if (discovery == null || discovery.IsError)
             {
-                return OkResponse<bool>.Error(discovery.HttpStatusCode, discovery?.Exception?.Message ?? "GetDiscoveryDocument error");
+                return OkResponse<bool>.Error(discovery.HttpStatusCode, discovery?.Error ?? "GetDiscoveryDocument error");
             }
 
             TokenResponse token = await GetTokenAsync(discovery.TokenEndpoint, model.Email, model.Password);
             if (token == null || token.IsError)
             {
-                return OkResponse<bool>.Error(token.HttpStatusCode, token?.Exception?.Message ?? "RequestPasswordToken error");
+                return OkResponse<bool>.Error(token.HttpStatusCode, token?.ErrorDescription ?? "RequestPasswordToken error");
             }
 
             UserInfoResponse userInfo = await GetUserInfoAsync(discovery.UserInfoEndpoint, token.AccessToken);
             if (userInfo == null || userInfo.IsError)
             {
-                return OkResponse<bool>.Error(userInfo.HttpStatusCode, userInfo?.Exception?.Message ?? "GetUserInfo error");
+                return OkResponse<bool>.Error(userInfo.HttpStatusCode, userInfo?.Error ?? "GetUserInfo error");
             }
 
             ClaimsPrincipal claimsPrincipal = GetClaimsPrincipal(userInfo.Claims);
@@ -79,7 +80,7 @@ namespace NET5Academy.Web.Services
         {
             var discoverRequest = new DiscoveryDocumentRequest
             {
-                Address = _gatewaySettings.BaseUri,
+                Address = _okServiceSettings.IdentityServerUri,
                 Policy = new DiscoveryPolicy { RequireHttps = false }
             };
 
