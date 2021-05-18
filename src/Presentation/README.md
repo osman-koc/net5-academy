@@ -1,6 +1,6 @@
 # NET5Academy Presentation
 
-- ASP.NET Core MVC Web Application
+- NET5Academy.Web
   - IdentityModel
   - Microsoft.IdentityModel.Protocols.OpenIdConnect
   - Bootstrap 5.0
