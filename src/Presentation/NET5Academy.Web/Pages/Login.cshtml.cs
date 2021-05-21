@@ -22,10 +22,12 @@ namespace NET5Academy.Web.Pages
         public string Password { get; set; }
         public string Message { get; set; }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
             if (HttpContext.User.Identity.IsAuthenticated)
-                Redirect("/admin");
+                return Redirect("/admin");
+
+            return Page();
         }
 
         public async Task<IActionResult> OnPost(string returnUrl = null)
