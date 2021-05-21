@@ -22,9 +22,15 @@ namespace NET5Academy.Web.Pages
         public string Password { get; set; }
         public string Message { get; set; }
 
+        public void OnGet()
+        {
+            if (HttpContext.User.Identity.IsAuthenticated)
+                Redirect("/admin");
+        }
+
         public async Task<IActionResult> OnPost(string returnUrl = null)
         {
-            if(!ModelState.IsValid || string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password))
+            if (!ModelState.IsValid || string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password))
             {
                 Message = "Kullanýcý adý veya parola alaný geçersiz.";
                 return Page();
@@ -41,7 +47,7 @@ namespace NET5Academy.Web.Pages
             if (!response.IsSuccess)
             {
                 Message = response.StatusCode == HttpStatusCode.BadRequest || response.StatusCode == HttpStatusCode.NotFound
-                    ? "Kullanýcý adý veya parola yanlýþ." 
+                    ? "Kullanýcý adý veya parola yanlýþ."
                     : "Sisteme giriþ yapýlamadý";
                 return Page();
             }
