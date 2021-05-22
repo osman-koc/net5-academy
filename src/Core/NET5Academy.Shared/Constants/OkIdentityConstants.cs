@@ -53,5 +53,10 @@ namespace NET5Academy.Shared.Constants
         {
             public const string Role = "role";
         }
+
+        public static class TokenTypeHint
+        {
+            public const string RefreshToken = "refresh_token";
+        }
     }
 }

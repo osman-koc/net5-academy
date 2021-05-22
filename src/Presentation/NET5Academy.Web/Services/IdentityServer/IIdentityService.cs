@@ -9,6 +9,6 @@ namespace NET5Academy.Web.Services
     {
         Task<OkResponse<bool>> SignInAsync(SignInModel model);
         Task<TokenResponse> GetAccessTokenByRefreshTokenAsync();
-        Task RevokeRefreshToken();
+        Task<OkResponse<bool>> RevokeRefreshToken();
     }
 }

@@ -78,13 +78,37 @@ namespace NET5Academy.Web.Services
             return token;
         }
 
-        public async Task RevokeRefreshToken()
+        public async Task<OkResponse<bool>> RevokeRefreshToken()
         {
-            throw new NotImplementedException();
+            var discovery = await GetDiscoveryDocumentAsync();
+            if (discovery == null || discovery.IsError)
+            {
+                return OkResponse<bool>.Error(discovery.HttpStatusCode, discovery?.Error ?? "GetDiscoveryDocument error");
+            }
+
+            var refreshToken = await _contextAccessor.HttpContext.GetTokenAsync(OpenIdConnectParameterNames.RefreshToken);
+            TokenRevocationRequest tokenRevocationRequest = new()
+            {
+                ClientId = OkIdentityConstants.Clients.WebMvcClientForUser.Id,
+                ClientSecret = OkIdentityConstants.Clients.WebMvcClientForUser.Secret,
+                Address = discovery.RevocationEndpoint,
+                Token = refreshToken,
+                TokenTypeHint = OkIdentityConstants.TokenTypeHint.RefreshToken,
+            };
+
+            var revokeRequest = await _httpClient.RevokeTokenAsync(tokenRevocationRequest);
+            if(revokeRequest == null || revokeRequest.IsError)
+            {
+                return OkResponse<bool>.Error(revokeRequest.HttpStatusCode, revokeRequest?.Error ?? "RevokeTokenAsync error");
+            }
+
+            return OkResponse<bool>.Success(HttpStatusCode.OK, true);
         }
 
 
+
         #region PrivateMethods
+
         private async Task<DiscoveryDocumentResponse> GetDiscoveryDocumentAsync()
         {
             var discoverRequest = new DiscoveryDocumentRequest
@@ -100,9 +124,9 @@ namespace NET5Academy.Web.Services
         {
             var tokenRequest = new PasswordTokenRequest
             {
-                Address = tokenEndpoint,
                 ClientId = OkIdentityConstants.Clients.WebMvcClientForUser.Id,
                 ClientSecret = OkIdentityConstants.Clients.WebMvcClientForUser.Secret,
+                Address = tokenEndpoint,
                 UserName = userName,
                 Password = password
             };
@@ -116,8 +140,8 @@ namespace NET5Academy.Web.Services
             {
                 ClientId = OkIdentityConstants.Clients.WebMvcClientForUser.Id,
                 ClientSecret = OkIdentityConstants.Clients.WebMvcClientForUser.Secret,
-                RefreshToken = refreshToken,
                 Address = tokenEndpoint,
+                RefreshToken = refreshToken,
             };
 
             return await _httpClient.RequestRefreshTokenAsync(refreshTokenRequest);
@@ -173,6 +197,7 @@ namespace NET5Academy.Web.Services
             var identityClaims = new ClaimsIdentity(userClaims, AUTH_SCHEMA, "name", "role");
             return new ClaimsPrincipal(identityClaims);
         }
+
         #endregion
     }
 }
