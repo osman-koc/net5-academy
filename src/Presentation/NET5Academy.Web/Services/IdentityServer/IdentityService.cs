@@ -39,34 +39,43 @@ namespace NET5Academy.Web.Services
                 return OkResponse<bool>.Error(HttpStatusCode.BadRequest, "Model is not valid");
             }
 
-            DiscoveryDocumentResponse discovery = await GetDiscoveryDocumentAsync();
+            var discovery = await GetDiscoveryDocumentAsync();
             if (discovery == null || discovery.IsError)
             {
                 return OkResponse<bool>.Error(discovery.HttpStatusCode, discovery?.Error ?? "GetDiscoveryDocument error");
             }
 
-            TokenResponse token = await GetTokenAsync(discovery.TokenEndpoint, model.Email, model.Password);
+            var token = await GetTokenAsync(discovery.TokenEndpoint, model.Email, model.Password);
             if (token == null || token.IsError)
             {
                 return OkResponse<bool>.Error(token.HttpStatusCode, token?.ErrorDescription ?? "RequestPasswordToken error");
             }
 
-            UserInfoResponse userInfo = await GetUserInfoAsync(discovery.UserInfoEndpoint, token.AccessToken);
+            var userInfo = await GetUserInfoAsync(discovery.UserInfoEndpoint, token.AccessToken);
             if (userInfo == null || userInfo.IsError)
             {
                 return OkResponse<bool>.Error(userInfo.HttpStatusCode, userInfo?.Error ?? "GetUserInfo error");
             }
 
-            ClaimsPrincipal claimsPrincipal = GetClaimsPrincipal(userInfo.Claims);
-            AuthenticationProperties authProperties = GetAuthenticationProperties(token.AccessToken, token.RefreshToken, token.ExpiresIn, model.RememberMe);
-
-            await _contextAccessor.HttpContext.SignInAsync(AUTH_SCHEMA, claimsPrincipal, authProperties);
+            await LoginAsync(userInfo, token, model.RememberMe);
             return OkResponse<bool>.Success(HttpStatusCode.OK, true);
         }
 
         public async Task<TokenResponse> GetAccessTokenByRefreshTokenAsync()
         {
-            throw new NotImplementedException();
+            var discovery = await GetDiscoveryDocumentAsync();
+            if (discovery == null || discovery.IsError)
+            {
+                return TokenResponse.FromException<TokenResponse>(discovery.Exception, discovery?.Error ?? "GetDiscoveryDocument error");
+            }
+
+            var token = await GetTokenWithRefreshTokenAsync(discovery.TokenEndpoint);
+            if (token != null && !token.IsError)
+            {
+                await LoginWithRefreshTokenAsync(token);
+            }
+
+            return token;
         }
 
         public async Task RevokeRefreshToken()
@@ -100,6 +109,19 @@ namespace NET5Academy.Web.Services
 
             return await _httpClient.RequestPasswordTokenAsync(tokenRequest);
         }
+        private async Task<TokenResponse> GetTokenWithRefreshTokenAsync(string tokenEndpoint)
+        {
+            string refreshToken = await _contextAccessor.HttpContext.GetTokenAsync(OpenIdConnectParameterNames.RefreshToken);
+            RefreshTokenRequest refreshTokenRequest = new()
+            {
+                ClientId = OkIdentityConstants.Clients.WebMvcClientForUser.Id,
+                ClientSecret = OkIdentityConstants.Clients.WebMvcClientForUser.Secret,
+                RefreshToken = refreshToken,
+                Address = tokenEndpoint,
+            };
+
+            return await _httpClient.RequestRefreshTokenAsync(refreshTokenRequest);
+        }
 
         private async Task<UserInfoResponse> GetUserInfoAsync(string userInfoEndpoint, string accessToken)
         {
@@ -112,20 +134,38 @@ namespace NET5Academy.Web.Services
             return await _httpClient.GetUserInfoAsync(userInfoRequest);
         }
 
-        private AuthenticationProperties GetAuthenticationProperties(string accessToken, string refreshToken, int expiresIn, bool isPersistent)
+        private List<AuthenticationToken> GetAuthTokens(string accessToken, string refreshToken, int expiresIn)
         {
-            var authTokens = new List<AuthenticationToken>
+            return new List<AuthenticationToken>
             {
                 new AuthenticationToken { Name = OpenIdConnectParameterNames.AccessToken, Value = accessToken },
                 new AuthenticationToken { Name = OpenIdConnectParameterNames.RefreshToken, Value = refreshToken },
                 new AuthenticationToken { Name = OpenIdConnectParameterNames.ExpiresIn, Value = DateTime.Now.AddSeconds(expiresIn).ToString("O", CultureInfo.InvariantCulture) },
             };
+        }
+        private async Task LoginAsync(UserInfoResponse userInfo, TokenResponse token, bool rememberMe)
+        {
+            var claimsPrincipal = GetClaimsPrincipal(userInfo.Claims);
+            var authTokens = GetAuthTokens(token.AccessToken, token.AccessToken, token.ExpiresIn);
 
             var authProperties = new AuthenticationProperties();
             authProperties.StoreTokens(authTokens);
-            authProperties.IsPersistent = isPersistent;
+            authProperties.IsPersistent = rememberMe;
 
-            return authProperties;
+            await _contextAccessor.HttpContext.SignInAsync(AUTH_SCHEMA, claimsPrincipal, authProperties);
+        }
+        private async Task LoginWithRefreshTokenAsync(TokenResponse token)
+        {
+            var authTokens = GetAuthTokens(token.AccessToken, token.RefreshToken, token.ExpiresIn);
+            
+            var authenticationResult = await _contextAccessor.HttpContext.AuthenticateAsync();
+            var authProps = authenticationResult?.Properties;
+            if (authProps != null)
+            {
+                authProps.StoreTokens(authTokens);
+            }
+
+            await _contextAccessor.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, authenticationResult.Principal, authProps);
         }
 
         private ClaimsPrincipal GetClaimsPrincipal(IEnumerable<Claim> userClaims)
