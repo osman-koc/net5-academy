@@ -45,7 +45,7 @@ namespace NET5Academy.Services.Catalog
                 .AddJwtBearer(options =>
                 {
                     options.Authority = _configuration["IdentityServerUri"];
-                    options.Audience = OkIdentityConstans.ResourceName.CatalogAPI;
+                    options.Audience = OkIdentityConstants.ResourceName.CatalogAPI;
                     options.RequireHttpsMetadata = false;
                 });
 

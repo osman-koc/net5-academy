@@ -2,7 +2,7 @@
 
 namespace NET5Academy.Shared.Constants
 {
-    public class OkIdentityConstans
+    public class OkIdentityConstants
     {
         public const string UserIdKey = "sub";
 
@@ -52,6 +52,11 @@ namespace NET5Academy.Shared.Constants
         public static class ClaimName
         {
             public const string Role = "role";
+        }
+
+        public static class TokenTypeHint
+        {
+            public const string RefreshToken = "refresh_token";
         }
     }
 }

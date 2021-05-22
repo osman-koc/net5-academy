@@ -32,7 +32,7 @@ namespace NET5Academy.Services.Payment
         public void ConfigureServices(IServiceCollection services)
         {
             var requireAuthorizePolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
-            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove(OkIdentityConstans.UserIdKey);
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove(OkIdentityConstants.UserIdKey);
 
             services.AddControllers(options =>
             {
@@ -48,7 +48,7 @@ namespace NET5Academy.Services.Payment
                 .AddJwtBearer(options =>
                 {
                     options.Authority = _configuration["IdentityServerUri"];
-                    options.Audience = OkIdentityConstans.ResourceName.PaymentAPI;
+                    options.Audience = OkIdentityConstants.ResourceName.PaymentAPI;
                     options.RequireHttpsMetadata = false;
                 });
         }

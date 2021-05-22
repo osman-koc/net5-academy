@@ -14,6 +14,6 @@ namespace NET5Academy.Shared.Services
             _contextAccessor = contextAccessor;
         }
 
-        public string GetUserId() => _contextAccessor?.HttpContext?.User?.FindFirst(OkIdentityConstans.UserIdKey)?.Value;
+        public string GetUserId() => _contextAccessor?.HttpContext?.User?.FindFirst(OkIdentityConstants.UserIdKey)?.Value;
     }
 }

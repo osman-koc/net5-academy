@@ -54,7 +54,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NET5Academy.ApiGateway", "G
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{5099F2CA-07AA-4BE0-BFCF-CC55EC50EB6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET5Academy.Web", "Presentation\NET5Academy.Web\NET5Academy.Web.csproj", "{2F77E269-1DFB-49ED-BC19-EEB2A82B9519}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NET5Academy.Web", "Presentation\NET5Academy.Web\NET5Academy.Web.csproj", "{2F77E269-1DFB-49ED-BC19-EEB2A82B9519}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

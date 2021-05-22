@@ -7,8 +7,8 @@ namespace NET5Academy.Web.Services
 {
     public interface IIdentityService
     {
-        Task<OkResponse<bool>> SignIn(SignInModel model);
-        Task<TokenResponse> GetAccessTokenByRefreshToken();
-        Task RevokeRefreshToken();
+        Task<OkResponse<bool>> SignInAsync(SignInModel model);
+        Task<TokenResponse> GetAccessTokenByRefreshTokenAsync();
+        Task<OkResponse<bool>> RevokeRefreshToken();
     }
 }
