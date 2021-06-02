@@ -24,9 +24,15 @@ namespace NET5Academy.Web
             services.AddRazorPages();
 
             services.Configure<OkServiceSettings>(_configuration.GetSection("OkServiceSettings"));
+            var okServiceSettings = _configuration.GetSection("OkServiceSettings").Get<OkServiceSettings>();
 
             services.AddHttpContextAccessor();
+
             services.AddHttpClient<IIdentityService, IdentityService>();
+            services.AddHttpClient<IUserService, UserService>(options =>
+            {
+                options.BaseAddress = new Uri(okServiceSettings.IdentityServerUri);
+            });
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
