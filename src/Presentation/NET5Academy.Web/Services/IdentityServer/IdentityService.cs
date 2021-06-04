@@ -113,7 +113,7 @@ namespace NET5Academy.Web.Services
         {
             var discoverRequest = new DiscoveryDocumentRequest
             {
-                Address = _okServiceSettings.IdentityServerUri,
+                Address = _okServiceSettings.IdentityServer.BaseUri,
                 Policy = new DiscoveryPolicy { RequireHttps = false }
             };
 

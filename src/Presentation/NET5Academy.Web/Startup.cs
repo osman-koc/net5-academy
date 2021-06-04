@@ -31,7 +31,7 @@ namespace NET5Academy.Web
             services.AddHttpClient<IIdentityService, IdentityService>();
             services.AddHttpClient<IUserService, UserService>(options =>
             {
-                options.BaseAddress = new Uri(okServiceSettings.IdentityServerUri);
+                options.BaseAddress = new Uri(okServiceSettings.IdentityServer.BaseUri);
             });
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

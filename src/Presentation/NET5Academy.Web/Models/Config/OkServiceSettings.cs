@@ -2,7 +2,7 @@
 {
     public class OkServiceSettings
     {
-        public string IdentityServerUri { get; set; }
+        public IdentitySettings IdentityServer { get; set; }
         public ApiGatewaySettings ApiGateway { get; set; }
     }
 }
