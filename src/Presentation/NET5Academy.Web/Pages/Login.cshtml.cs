@@ -22,10 +22,10 @@ namespace NET5Academy.Web.Pages
         public string Password { get; set; }
         public string Message { get; set; }
 
-        public IActionResult OnGet()
+        public IActionResult OnGet(string returnUrl = null)
         {
             if (HttpContext.User.Identity.IsAuthenticated)
-                return Redirect("/admin");
+                return Redirect(returnUrl ?? "/");
 
             return Page();
         }
@@ -54,7 +54,7 @@ namespace NET5Academy.Web.Pages
                 return Page();
             }
 
-            return Redirect("/admin");
+            return Redirect(returnUrl ?? "/");
         }
     }
 }

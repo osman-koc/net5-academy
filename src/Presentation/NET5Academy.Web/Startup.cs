@@ -26,8 +26,11 @@ namespace NET5Academy.Web
 
             services.Configure<OkServiceSettings>(_configuration.GetSection("OkServiceSettings"));
             var okServiceSettings = _configuration.GetSection("OkServiceSettings").Get<OkServiceSettings>();
+            services.AddScoped<OkServiceSettings>(x => okServiceSettings);
 
             services.AddHttpContextAccessor();
+
+            services.AddScoped<ResourceOwnerPasswordTokenHandler>();
 
             services.AddHttpClient<IIdentityService, IdentityService>();
             services.AddHttpClient<IUserService, UserService>(options =>
@@ -59,8 +62,8 @@ namespace NET5Academy.Web
             app.UseStaticFiles();
             app.UseRouting();
 
-            app.UseAuthorization();
             app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
