@@ -5,7 +5,7 @@ using NET5Academy.Shared.Controllers;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NET5Academy.Services.PhotoStock.Application.Controllers
+namespace NET5Academy.Services.PhotoStock.Controllers
 {
     [Route("api/v1/[controllers]")]
     [ApiController]

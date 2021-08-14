@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 using IdentityServer4;
 using System.IdentityModel.Tokens.Jwt;
 
-namespace NET5Academy.IdentityServer.Application.Controllers
+namespace NET5Academy.IdentityServer.Controllers
 {
     [Authorize(IdentityServerConstants.LocalApi.PolicyName)]
     [Route("api/[controller]")]

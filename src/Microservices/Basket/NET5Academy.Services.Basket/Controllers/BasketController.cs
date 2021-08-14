@@ -5,7 +5,7 @@ using NET5Academy.Shared.Controllers;
 using NET5Academy.Shared.Services;
 using System.Threading.Tasks;
 
-namespace NET5Academy.Services.Basket.Application.Controllers
+namespace NET5Academy.Services.Basket.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
