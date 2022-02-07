@@ -14,7 +14,7 @@ using System.IdentityModel.Tokens.Jwt;
 namespace NET5Academy.IdentityServer.Controllers
 {
     [Authorize(IdentityServerConstants.LocalApi.PolicyName)]
-    [Route("api/v1/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class UserController : OkBaseController
     {
