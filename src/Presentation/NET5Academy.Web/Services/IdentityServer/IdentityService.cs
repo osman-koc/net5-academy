@@ -78,7 +78,7 @@ namespace NET5Academy.Web.Services
             return token;
         }
 
-        public async Task<OkResponse<bool>> RevokeRefreshToken()
+        public async Task<OkResponse<bool>> RevokeRefreshTokenAsync()
         {
             var discovery = await GetDiscoveryDocumentAsync();
             if (discovery == null || discovery.IsError)

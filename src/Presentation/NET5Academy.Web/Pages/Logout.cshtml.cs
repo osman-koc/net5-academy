@@ -22,7 +22,7 @@ namespace NET5Academy.Web.Pages
             _logger.LogDebug("Logout - Deleting all cookies..");
 
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            await _identityService.RevokeRefreshToken();
+            await _identityService.RevokeRefreshTokenAsync();
 
             //foreach (var item in Request.Cookies.Keys)
             //{
