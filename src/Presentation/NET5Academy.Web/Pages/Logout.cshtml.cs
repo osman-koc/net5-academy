@@ -1,5 +1,8 @@
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using System.Threading.Tasks;
 
 namespace NET5Academy.Web.Pages
 {
@@ -11,14 +14,16 @@ namespace NET5Academy.Web.Pages
             _logger = logger;
         }
 
-        public void OnGet()
+        public async Task OnGet()
         {
             _logger.LogDebug("Logout - Deleting all cookies..");
-            foreach (var item in Request.Cookies.Keys)
-            {
-                Response.Cookies.Delete(item);
-            }
-            LocalRedirect("/Login");
+
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+            //foreach (var item in Request.Cookies.Keys)
+            //{
+            //    Response.Cookies.Delete(item);
+            //}
         }
     }
 }
