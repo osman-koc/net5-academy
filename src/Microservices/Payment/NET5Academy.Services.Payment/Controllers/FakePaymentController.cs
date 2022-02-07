@@ -3,7 +3,7 @@ using NET5Academy.Shared.Controllers;
 using NET5Academy.Shared.Models;
 using System.Threading.Tasks;
 
-namespace NET5Academy.Services.Payment.Application.Controllers
+namespace NET5Academy.Services.Payment.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]

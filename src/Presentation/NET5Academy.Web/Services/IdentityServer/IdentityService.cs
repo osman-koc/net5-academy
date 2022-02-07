@@ -78,7 +78,7 @@ namespace NET5Academy.Web.Services
             return token;
         }
 
-        public async Task<OkResponse<bool>> RevokeRefreshToken()
+        public async Task<OkResponse<bool>> RevokeRefreshTokenAsync()
         {
             var discovery = await GetDiscoveryDocumentAsync();
             if (discovery == null || discovery.IsError)
@@ -113,7 +113,7 @@ namespace NET5Academy.Web.Services
         {
             var discoverRequest = new DiscoveryDocumentRequest
             {
-                Address = _okServiceSettings.IdentityServerUri,
+                Address = _okServiceSettings.IdentityServer.BaseUri,
                 Policy = new DiscoveryPolicy { RequireHttps = false }
             };
 
